@@ -42,7 +42,20 @@ a{color:inherit}a:hover{color:inherit}
 .card:hover .more{letter-spacing:.24em}
 .nav a{transition:color .2s ease}
 .nav a:hover{color:#9B1E22}
-@media (max-width: 960px){header nav{display:none}.hero-badge{display:none !important}}
+@media (max-width: 960px){header nav{display:none}}
+@media (max-width: 640px){
+.hero-badge{width:96px !important;height:96px !important}
+.hero-badge svg{width:96px;height:96px}
+.hero-ctas{width:100%}
+.hero-ctas .btn{flex:1 1 100%;justify-content:center}
+.svc{grid-template-columns:36px minmax(0,1fr) 28px !important;gap:6px 14px !important;padding:24px 0 !important}
+.svc:hover{padding-left:12px !important}
+.svc .svc-d{grid-column:2 / 3;grid-row:2}
+.svc .arr{grid-column:3;grid-row:1;width:22px;height:22px}
+.phase{border-right:0 !important;border-bottom:1px solid rgba(251,250,249,.1);padding:24px 0 !important}
+.card{margin-top:0 !important}
+.cta-btn{width:100%;justify-content:center;box-sizing:border-box}
+}
 @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
 </style>
 <style>html{scroll-behavior:smooth}</style>
@@ -70,26 +83,27 @@ a{color:inherit}a:hover{color:inherit}
       <span class="rec" style="width: 10px; height: 10px; border-radius: 50%; background: #9B1E22; display: inline-block"></span>
       <span>Festival Strategy &amp; Communication</span>
     </div>
-    <h1 style="margin: 28px 0 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(64px, 13vw, 200px); line-height: .88; letter-spacing: -.005em; text-transform: uppercase; color: #120F0E">
+    <h1 style="margin: 28px 0 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(54px, 13vw, 200px); line-height: .88; letter-spacing: -.005em; text-transform: uppercase; color: #120F0E">
       <span class="ln"><span>Il festival vive</span></span>
       <span class="ln"><span style="color: #9B1E22">oltre</span></span>
       <span class="ln"><span>l'evento.</span></span>
     </h1>
     <div class="fade" style="margin-top: clamp(32px, 5vw, 56px); display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end; justify-content: space-between">
       <p style="margin: 0; max-width: 520px; font-size: clamp(18px, 1.6vw, 21px); line-height: 1.5; color: #3B3733">Aiutiamo a costruire festival che vivono 365 giorni l'anno, attraverso strategia, comunicazione, contenuti e relazioni.</p>
-      <div style="display: flex; gap: 12px; flex-wrap: wrap">
-        <a class="btn" href="#contatti" style="background: #9B1E22; color: #FBFAF9; text-decoration: none; padding: 18px 28px; font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; gap: 12px; align-items: center">Contattaci
-          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"></path></svg></a>
-        <a class="btn btn-ghost" href="#approccio" style="border: 1px solid #120F0E; color: #120F0E; text-decoration: none; padding: 18px 28px; font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; align-items: center">Il nostro approccio</a>
-      </div>
-    </div>
-    <!-- rotating badge -->
-    <div class="hero-badge" aria-hidden="true" style="position: absolute; right: clamp(16px, 4vw, 48px); top: clamp(48px, 8vw, 110px); width: 132px; height: 132px; display: flex; align-items: center; justify-content: center">
+      <div class="hero-ctas" style="display: flex; gap: 24px; flex-wrap: wrap; align-items: center">
+    <div class="hero-badge" aria-hidden="true" style="position: relative; width: 132px; height: 132px; flex: none; display: flex; align-items: center; justify-content: center">
       <svg class="badge" width="132" height="132" viewBox="0 0 132 132" style="position: absolute; inset: 0">
         <defs><path id="circ" d="M66,66 m-54,0 a54,54 0 1,1 108,0 a54,54 0 1,1 -108,0"></path></defs>
         <text fill="#5C5650" style="font-family: Archivo, sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: 3px"><textPath href="#circ">365 GIORNI · NON SOLO UNA SETTIMANA · </textPath></text>
       </svg>
       <span style="font-family: Anton, sans-serif; font-size: 34px; color: #9B1E22">365</span>
+    </div>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap">
+        <a class="btn" href="#contatti" style="background: #9B1E22; color: #FBFAF9; text-decoration: none; padding: 18px 28px; font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; gap: 12px; align-items: center">Contattaci
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"></path></svg></a>
+        <a class="btn btn-ghost" href="#approccio" style="border: 1px solid #120F0E; color: #120F0E; text-decoration: none; padding: 18px 28px; font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; align-items: center">Il nostro approccio</a>
+      </div>
+      </div>
     </div>
   </section>
 
@@ -126,22 +140,22 @@ a{color:inherit}a:hover{color:inherit}
         <div class="bar" style="position: absolute; left: 0; top: 0; height: 2px; background: #E8605B"></div>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 0">
-        <div style="padding: 28px 28px 8px 0; border-right: 1px solid rgba(251,250,249,.1)">
+        <div class="phase" style="padding: 28px 28px 8px 0; border-right: 1px solid rgba(251,250,249,.1)">
           <p style="margin: 0; font-family: Archivo, sans-serif; font-size: 12px; color: #A8A29A">T-90 → T-30</p>
           <h3 style="margin: 14px 0 10px; font-family: Anton, sans-serif; font-weight: 400; font-size: 40px; text-transform: uppercase">Pre</h3>
           <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #D9D3C8">Posizionamento, teasing e costruzione relazionale.</p>
         </div>
-        <div style="padding: 28px 28px 8px; border-right: 1px solid rgba(251,250,249,.1)">
+        <div class="phase" style="padding: 28px 28px 8px; border-right: 1px solid rgba(251,250,249,.1)">
           <p style="margin: 0; font-family: Archivo, sans-serif; font-size: 12px; color: #A8A29A">T-30 → T-0</p>
           <h3 style="margin: 14px 0 10px; font-family: Anton, sans-serif; font-weight: 400; font-size: 40px; text-transform: uppercase">Build-up</h3>
           <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #D9D3C8">Programma, ospiti, partnership e community.</p>
         </div>
-        <div style="padding: 28px 28px 8px; border-right: 1px solid rgba(251,250,249,.1)">
+        <div class="phase" style="padding: 28px 28px 8px; border-right: 1px solid rgba(251,250,249,.1)">
           <p style="margin: 0; font-family: Archivo, sans-serif; font-size: 12px; color: #E8605B; display: flex; gap: 8px; align-items: center"><span class="rec" style="width: 8px; height: 8px; border-radius: 50%; background: #E8605B; display: inline-block"></span>ON AIR</p>
           <h3 style="margin: 14px 0 10px; font-family: Anton, sans-serif; font-weight: 400; font-size: 40px; text-transform: uppercase; color: #E8605B">Live</h3>
           <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #D9D3C8">Coverage, creator, format, talent ed experience.</p>
         </div>
-        <div style="padding: 28px 0 8px 28px">
+        <div class="phase" style="padding: 28px 0 8px 28px">
           <p style="margin: 0; font-family: Archivo, sans-serif; font-size: 12px; color: #A8A29A">T+1 → next edition</p>
           <h3 style="margin: 14px 0 10px; font-family: Anton, sans-serif; font-weight: 400; font-size: 40px; text-transform: uppercase">Post</h3>
           <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #D9D3C8">Memoria, risultati, contenuti e sviluppo dell'edizione successiva.</p>
@@ -276,7 +290,7 @@ a{color:inherit}a:hover{color:inherit}
           <span style="border: 1px solid #120F0E; padding: 8px 14px; font-size: 13px; font-weight: 600">Partnership</span>
           <span style="border: 1px solid #120F0E; padding: 8px 14px; font-size: 13px; font-weight: 600">Gestione operativa</span>
         </div>
-        <a class="btn" href="#agenzia" style="background: #120F0E; color: #FBFAF9; text-decoration: none; padding: 18px 28px; font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex">Conosci AKA LAB</a>
+        <a class="btn cta-btn" href="#agenzia" style="background: #120F0E; color: #FBFAF9; text-decoration: none; padding: 18px 28px; font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex">Conosci AKA LAB</a>
       </div>
     </div>
   </section>
@@ -288,7 +302,7 @@ a{color:inherit}a:hover{color:inherit}
       <h2 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(56px, 10vw, 160px); line-height: .88; text-transform: uppercase">Costruiamo il<br>prossimo progetto<br>insieme.</h2>
       <div style="margin-top: 48px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
         <p style="margin: 0; font-size: 20px; line-height: 1.5; max-width: 480px">Un festival, un progetto speciale o una partnership: raccontaci da dove parti.</p>
-        <a class="btn" href="mailto:francesco@aka-lab.it" style="background: #120F0E; color: #FBFAF9; text-decoration: none; padding: 22px 34px; font-size: 14px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; gap: 12px; align-items: center">Parliamo di un progetto
+        <a class="btn cta-btn" href="mailto:francesco@aka-lab.it" style="background: #120F0E; color: #FBFAF9; text-decoration: none; padding: 22px 34px; font-size: 14px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; gap: 12px; align-items: center">Parliamo di un progetto
           <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"></path></svg></a>
       </div>
     </div>
