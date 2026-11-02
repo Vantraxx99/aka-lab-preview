@@ -212,7 +212,7 @@ function stage(){
   var t0=performance.now();
   (function loop(now){requestAnimationFrame(loop);if(!vis||document.hidden)return;var t=(now-t0)/1000;
     mx=lerp(mx,tx,.04);my=lerp(my,ty,.04);U.uT.value=t;
-    cam.position.set(mx*3,4.2-my*1.2,7);cam.lookAt(0,1.6,-14);
+    var por=cam.aspect<1;cam.position.set(mx*3,(por?3.4:4.2)-my*1.2,7);cam.lookAt(0,por?3.6:1.6,-14);
     renderer.render(scene,cam)})(t0);
 }
 
