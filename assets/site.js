@@ -197,10 +197,10 @@ function stage(){
     vertexShader:'uniform float uT;uniform vec2 uM;uniform float uPR;varying float vH;varying float vF;void main(){vec3 p=position;'+
       'float w=sin(p.x*.35+uT*.9)*.45+sin(p.z*.5-uT*1.1)*.35+sin((p.x+p.z)*.18+uT*.6)*.6;'+
       'float d=distance(p.xz,uM);w+=sin(d*1.6-uT*4.)*exp(-d*.35)*.9;p.y=w;vH=w;'+
-      'vec4 mv=modelViewMatrix*vec4(p,1.);vF=clamp(1.+mv.z/34.,0.,1.);gl_PointSize=uPR*(2.2+w*.8)*(14./-mv.z);gl_Position=projectionMatrix*mv;}',
+      'vec4 mv=modelViewMatrix*vec4(p,1.);vF=clamp(1.+mv.z/40.,0.,1.);gl_PointSize=uPR*(3.2+w*1.1)*(16./-mv.z);gl_Position=projectionMatrix*mv;}',
     fragmentShader:'varying float vH;varying float vF;void main(){vec2 c=gl_PointCoord-.5;if(dot(c,c)>.25)discard;'+
       'vec3 red=vec3(.91,.38,.36);vec3 cream=vec3(.98,.95,.92);vec3 col=mix(red,cream,smoothstep(.3,1.3,vH));'+
-      'float a=vF*vF*(.35+.45*smoothstep(-.6,1.2,vH));gl_FragColor=vec4(col*a,a);}'});
+      'float a=vF*(.55+.45*smoothstep(-.6,1.2,vH));gl_FragColor=vec4(col*a,a);}'});
   var pts=new T.Points(g,m);scene.add(pts);
   var mx=0,my=0,tx=0,ty=0, ray=new T.Raycaster(), plane=new T.Plane(new T.Vector3(0,1,0),0), hit=new T.Vector3(), ndc=new T.Vector2();
   addEventListener('pointermove',function(e){tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5;
@@ -211,7 +211,7 @@ function stage(){
   var t0=performance.now();
   (function loop(now){requestAnimationFrame(loop);if(!vis||document.hidden)return;var t=(now-t0)/1000;
     mx=lerp(mx,tx,.04);my=lerp(my,ty,.04);U.uT.value=t;
-    cam.position.set(mx*3,6.5-my*1.5,9);cam.lookAt(0,-1.2,-12);
+    cam.position.set(mx*3,4.2-my*1.2,7);cam.lookAt(0,1.6,-14);
     renderer.render(scene,cam)})(t0);
 }
 
