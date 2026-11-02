@@ -43,6 +43,7 @@ button{font:inherit;color:inherit}
 .dark .btn-red{--fill:var(--paper);--hover-ink:var(--ink)}
 .dark .btn-ghost{--fill:var(--paper);--hover-ink:var(--ink)}
 .redbg .btn-ink{background:var(--ink);border-color:var(--ink);color:var(--paper);--fill:var(--paper);--hover-ink:var(--ink)}
+.redbg .btn-ink:hover{color:var(--ink)}
 .magnetic{will-change:transform;transition:transform .5s var(--ease)}
 
 /* ---------- Loader (intro logo AKA LAB) ---------- */
