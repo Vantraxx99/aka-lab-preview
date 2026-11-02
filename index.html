@@ -2,280 +2,175 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>AKA LAB — Festival Strategy &amp; Communication</title>
-<meta name="description" content="Aiutiamo a costruire festival che vivono 365 giorni l'anno.">
+<meta name="description" content="Aiutiamo a costruire festival che vivono 365 giorni l'anno, attraverso strategia, comunicazione, contenuti e relazioni.">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#120F0E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<style>
-body{margin:0;background:#120F0E}
-a{color:inherit}a:hover{color:inherit}
-@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-@keyframes slide{to{transform:translateX(-50%)}}
-@keyframes slideBack{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-@keyframes blink{50%{opacity:.15}}
-@keyframes fill{0%{width:0}85%{width:100%}100%{width:100%}}
-@keyframes spin{to{transform:rotate(360deg)}}
-.ln{display:block;overflow:hidden;padding-bottom:.04em}
-.ln>span{display:inline-block;animation:rise 1s cubic-bezier(.2,.75,.1,1) both}
-.ln:nth-child(2)>span{animation-delay:.12s}
-.ln:nth-child(3)>span{animation-delay:.24s}
-.fade{animation:fadeUp 1s .5s cubic-bezier(.2,.75,.1,1) both}
-.track{display:flex;width:max-content;animation:slide 38s linear infinite}
-.track.back{animation:slideBack 44s linear infinite}
-.rec{animation:blink 1.4s steps(1) infinite}
-.bar{animation:fill 7s cubic-bezier(.6,0,.3,1) infinite}
-.badge{animation:spin 18s linear infinite}
-.btn{transition:transform .25s ease, background-color .25s ease, color .25s ease}
-.btn:hover{transform:translateY(-2px)}
-.btn-ghost:hover{background:#120F0E;color:#FBFAF9}
-.svc{transition:background-color .35s ease, color .35s ease, padding .35s ease}
-.svc:hover{background:#9B1E22;color:#FBFAF9;padding-left:28px}
-.svc:hover .svc-n,.svc:hover .svc-d{color:#FBFAF9}
-.svc .arr{transition:transform .35s ease}
-summary.svc::-webkit-details-marker{display:none}
-.svc-item{scroll-margin-top:84px}
-summary.svc:focus-visible{outline:2px solid #9B1E22;outline-offset:2px}
-details[open] > .svc{background:#9B1E22;color:#FBFAF9;padding-left:28px}
-details[open] > .svc .svc-n,details[open] > .svc .svc-d{color:#FBFAF9}
-details[open] > .svc .arr{transform:rotate(45deg)}
-@keyframes panelIn{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
-details[open] > .svc-panel{animation:panelIn .5s cubic-bezier(.2,.75,.1,1) both}
-.card .ph{transition:transform .8s cubic-bezier(.2,.75,.1,1), filter .6s ease;filter:grayscale(1) contrast(1.1)}
-.card:hover .ph{transform:scale(1.04);filter:none}
-.card .more{transition:letter-spacing .35s ease}
-.card:hover .more{letter-spacing:.24em}
-.nav a{transition:color .2s ease}
-.nav a:hover{color:#9B1E22}
-@media (max-width: 960px){header nav{display:none !important}}
-@media (max-width: 640px){
-.hero-badge{display:none !important}
-.hero-ctas{width:100%}
-.hero-ctas .btn{flex:1 1 100%;justify-content:center}
-.svc{grid-template-columns:36px minmax(0,1fr) 28px !important;gap:6px 14px !important;padding:24px 0 !important}
-.svc:hover{padding-left:12px !important}
-.svc .svc-d{grid-column:2 / 3;grid-row:2}
-.svc .arr{grid-column:3;grid-row:1;width:22px;height:22px}
-.phase{border-right:0 !important;border-bottom:1px solid rgba(251,250,249,.1);padding:24px 0 !important}
-.card{margin-top:0 !important}
-.svc-panel{padding:8px 0 36px !important}
-details[open] > .svc{padding-left:12px !important}
-.cta-btn{width:100%;justify-content:center;box-sizing:border-box}
-}
-@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
-</style>
-<style>html{scroll-behavior:smooth}</style>
+<link rel="stylesheet" href="assets/site.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script src="assets/site.js" defer></script>
 </head>
 <body>
-<div style="font-family: Archivo, system-ui, sans-serif; color: #120F0E; background: #FBFAF9; width: 100%; overflow-x: clip">
+<!-- SHELL-START -->
+<a class="skip" href="#main">Vai al contenuto</a>
+<div class="loader" aria-hidden="true">
+  <div class="loader-top"><span>AKA LAB</span><span>Festival Strategy &amp; Communication</span></div>
+  <div class="loader-count">000</div>
+  <div class="loader-bar"></div>
+</div>
+<div class="curtain" aria-hidden="true"></div>
 
-  <!-- NAV -->
-  <header class="nav" style="position: sticky; top: 0; z-index: 10; background: rgba(251,250,249,.86); backdrop-filter: blur(12px); border-bottom: 1px solid #E1DDDA">
-    <div style="max-width: 1360px; margin: 0 auto; padding: 18px clamp(16px, 4vw, 48px); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap">
-      <a href="#top" style="font-family: Anton, sans-serif; font-size: 30px; letter-spacing: .01em; text-decoration: none; color: #9B1E22">AKA LAB</a>
-      <nav style="display: flex; gap: clamp(14px, 2.4vw, 36px); flex-wrap: wrap; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase">
-        <a href="#approccio" style="text-decoration: none; color: #120F0E">Approccio</a>
-        <a href="#servizi" style="text-decoration: none; color: #120F0E">Servizi</a>
-        <a href="#portfolio" style="text-decoration: none; color: #120F0E">Portfolio</a>
-        <a href="#agenzia" style="text-decoration: none; color: #120F0E">Agenzia</a>
-      </nav>
-      <a class="btn" href="#contatti" style="background: #9B1E22; color: #FBFAF9; text-decoration: none; padding: 12px 20px; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Parliamo</a>
-    </div>
-  </header>
+<header class="hdr">
+  <div class="wrap">
+    <a class="logo" href="index.html#top" aria-label="AKA LAB, home">AKA LAB</a>
+    <nav class="nav" aria-label="Principale">
+      <a href="index.html#approccio">Approccio</a>
+      <a href="index.html#servizi">Servizi</a>
+      <a href="index.html#portfolio">Portfolio</a>
+      <a href="index.html#agenzia">Agenzia</a>
+    </nav>
+    <a class="btn btn-red hdr-cta" href="#contatti">Parliamo</a>
+    <button class="burger" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </div>
+</header>
+<div class="menu" id="menu">
+  <nav aria-label="Menu mobile">
+    <a class="big" href="index.html#approccio"><span>Approccio</span></a>
+    <a class="big" href="index.html#servizi"><span>Servizi</span></a>
+    <a class="big" href="index.html#portfolio"><span>Portfolio</span></a>
+    <a class="big" href="index.html#agenzia"><span>Agenzia</span></a>
+    <a class="big" href="#contatti"><span>Contatti</span></a>
+  </nav>
+  <div class="menu-foot"><span>francesco@aka-lab.it</span><span>andrea@aka-lab.it</span></div>
+</div>
+<!-- SHELL-END -->
+
+<main id="main">
 
   <!-- HERO -->
-  <section id="top" style="position: relative; max-width: 1360px; margin: 0 auto; padding: clamp(28px, 6svh, 72px) clamp(16px, 4vw, 48px) clamp(40px, 6svh, 72px)">
-    <div style="display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 600; letter-spacing: .2em; color: #9B1E22; text-transform: uppercase">
-      <span class="rec" style="width: 10px; height: 10px; border-radius: 50%; background: #9B1E22; display: inline-block"></span>
-      <span>Festival Strategy &amp; Communication</span>
-    </div>
-    <h1 style="margin: clamp(16px, 3svh, 28px) 0 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(46px, min(12vw, 14.5svh), 184px); line-height: .9; letter-spacing: -.005em; text-transform: uppercase; color: #120F0E">
-      <span class="ln"><span>Il festival vive</span></span>
-      <span class="ln"><span style="color: #9B1E22">oltre</span></span>
-      <span class="ln"><span>l'evento.</span></span>
-    </h1>
-    <div class="fade" style="margin-top: clamp(20px, 4svh, 48px); display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end; justify-content: space-between">
-      <p style="margin: 0; max-width: 520px; font-size: clamp(18px, 1.6vw, 21px); line-height: 1.5; color: #3B3733">Aiutiamo a costruire festival che vivono 365 giorni l'anno, attraverso strategia, comunicazione, contenuti e relazioni.</p>
-      <div class="hero-ctas" style="display: flex; gap: 24px; flex-wrap: wrap; align-items: center">
-    <div class="hero-badge" aria-hidden="true" style="position: relative; width: 112px; height: 112px; flex: none; display: flex; align-items: center; justify-content: center">
-      <svg class="badge" width="112" height="112" viewBox="0 0 132 132" style="position: absolute; inset: 0">
-        <defs><path id="circ" d="M66,66 m-54,0 a54,54 0 1,1 108,0 a54,54 0 1,1 -108,0"></path></defs>
-        <text fill="#5C5650" style="font-family: Archivo, sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: 3px"><textPath href="#circ">365 GIORNI · NON SOLO UNA SETTIMANA · </textPath></text>
-      </svg>
-      <span style="font-family: Anton, sans-serif; font-size: 34px; color: #9B1E22">365</span>
-    </div>
-      <div style="display: flex; gap: 12px; flex-wrap: wrap">
-        <a class="btn" href="#contatti" style="background: #9B1E22; color: #FBFAF9; text-decoration: none; padding: 18px 28px; font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; gap: 12px; align-items: center">Contattaci
-          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"></path></svg></a>
-        <a class="btn btn-ghost" href="#approccio" style="border: 1px solid #120F0E; color: #120F0E; text-decoration: none; padding: 18px 28px; font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; align-items: center">Il nostro approccio</a>
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <canvas class="hero-stage" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="hero-vignette" aria-hidden="true"></div>
+    <div class="hero-inner wrap" data-hero>
+      <div class="hero-meta up" style="--d:200ms">
+        <span class="rec"><i></i>Festival Strategy &amp; Communication</span>
+        <span class="tc">LIVE · <span data-tc>00:00:00:00</span></span>
       </div>
+      <div class="hero-title-box">
+        <h1 class="display fit" id="hero-title" data-fit data-fit-h=".hero-title-box" aria-label="Il festival vive oltre l'evento.">
+          <span class="ln" data-i="0"><span>Il festival</span></span>
+          <span class="ln" data-i="1"><span>vive <b class="red" style="font-weight:400">oltre</b></span></span>
+          <span class="ln" data-i="2"><span>l'evento.</span></span>
+        </h1>
       </div>
+      <div class="hero-foot">
+        <p class="lead up" style="--d:700ms">Aiutiamo a costruire festival che vivono 365 giorni l'anno, attraverso strategia, comunicazione, contenuti e relazioni.</p>
+        <div class="hero-ctas up" style="--d:850ms">
+          <a class="btn btn-red magnetic" href="#contatti">Contattaci
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"/></svg></a>
+          <a class="btn btn-ghost magnetic" href="#approccio">Il nostro approccio</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-ind" aria-hidden="true"></div>
+  </section>
+
+  <!-- COLLABORAZIONI -->
+  <section class="mq" aria-label="Hanno collaborato con noi">
+    <p class="mq-label">Hanno collaborato con noi</p>
+    <div class="mq-row" data-mq="1" data-speed=".7">
+      <span>Italian Global Series</span><span class="star">✦</span><span>Alice nella Città</span><span class="star">✦</span><span>Giffoni</span><span class="star">✦</span><span>Lux Vide</span><span class="star">✦</span><span>Rai Cinema</span><span class="star">✦</span><span>Lucky Red</span><span class="star">✦</span><span>Fremantle</span><span class="star">✦</span><span>X Factor</span><span class="star">✦</span><span>Cinecittà</span><span class="star">✦</span>
+    </div>
+    <div class="mq-row outline" data-mq="-1" data-speed=".55" style="margin-top:6px">
+      <span>COMICON</span><span class="slash">/</span><span>Vision Distribution</span><span class="slash">/</span><span>Ministero della Cultura</span><span class="slash">/</span><span>PiperFilm</span><span class="slash">/</span><span>Trieste Science+Fiction</span><span class="slash">/</span><span>Asmodee</span><span class="slash">/</span><span>Umbria Film Commission</span><span class="slash">/</span><span>Minimum Fax</span><span class="slash">/</span>
     </div>
   </section>
 
-  <!-- COLLABORAZIONI MARQUEE -->
-  <section aria-label="Hanno collaborato con noi" style="background: #EAE7E5; color: #120F0E; padding: 28px 0">
-    <p style="margin: 0 0 18px; text-align: center; font-family: Archivo, sans-serif; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #5C5650">Hanno collaborato con noi</p>
-    <div style="overflow: hidden">
-      <div class="track" style="font-family: Anton, sans-serif; font-size: clamp(28px, 3.4vw, 46px); text-transform: uppercase; white-space: nowrap; gap: 0">
-        <span style="padding: 0 28px">Italian Global Series</span><span style="color: #9B1E22">✦</span><span style="padding: 0 28px">Alice nella Città</span><span style="color: #9B1E22">✦</span><span style="padding: 0 28px">Giffoni</span><span style="color: #9B1E22">✦</span><span style="padding: 0 28px">Lux Vide</span><span style="color: #9B1E22">✦</span><span style="padding: 0 28px">Rai Cinema</span><span style="color: #9B1E22">✦</span><span style="padding: 0 28px">Lucky Red</span><span style="color: #9B1E22">✦</span><span style="padding: 0 28px">Fremantle</span><span style="color: #9B1E22">✦</span><span style="padding: 0 28px">X Factor</span><span style="color: #9B1E22">✦</span>
-        <span style="padding: 0 28px">Italian Global Series</span><span style="color: #9B1E22">✦</span><span style="padding: 0 28px">Alice nella Città</span><span style="color: #9B1E22">✦</span><span style="padding: 0 28px">Giffoni</span><span style="color: #9B1E22">✦</span><span style="padding: 0 28px">Lux Vide</span><span style="color: #9B1E22">✦</span><span style="padding: 0 28px">Rai Cinema</span><span style="color: #9B1E22">✦</span><span style="padding: 0 28px">Lucky Red</span><span style="color: #9B1E22">✦</span><span style="padding: 0 28px">Fremantle</span><span style="color: #9B1E22">✦</span><span style="padding: 0 28px">X Factor</span><span style="color: #9B1E22">✦</span>
+  <!-- NUMERI -->
+  <section class="dark sec" aria-labelledby="num-title">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Risultati documentati</p>
+      <h2 class="display h2 lines" id="num-title" style="margin-bottom:clamp(48px,6vw,88px)"><span class="ln" style="--i:0"><span>I numeri</span></span><span class="ln" style="--i:1"><span>del 2026</span></span></h2>
+      <div class="nums">
+        <div class="num" data-reveal><b data-count="14" data-pre="+" data-suf="M">+14<em>M</em></b><p>Visualizzazioni social<small>Mostra del Cinema di Venezia</small></p></div>
+        <div class="num" data-reveal style="--d:100ms"><b data-count="2.5" data-pre="+" data-suf="M">+2.5<em>M</em></b><p>Visualizzazioni totali<small>Italian Global Series Festival</small></p></div>
+        <div class="num" data-reveal style="--d:200ms"><b data-count="2.1" data-pre="+" data-suf="M">+2.1<em>M</em></b><p>Visualizzazioni complessive<small>COMICON</small></p></div>
+        <div class="num" data-reveal style="--d:300ms"><b data-count="955" data-pre="+" data-suf="K">+955<em>K</em></b><p>Visualizzazioni complessive<small>Pesaro Film Festival</small></p></div>
       </div>
-    </div>
-    <div style="overflow: hidden; margin-top: 6px">
-      <div class="track back" style="font-family: Anton, sans-serif; font-size: clamp(28px, 3.4vw, 46px); text-transform: uppercase; white-space: nowrap; color: transparent; -webkit-text-stroke: 1px #120F0E">
-        <span style="padding: 0 28px">COMICON</span><span style="padding: 0 4px">/</span><span style="padding: 0 28px">Cinecittà</span><span style="padding: 0 4px">/</span><span style="padding: 0 28px">Vision Distribution</span><span style="padding: 0 4px">/</span><span style="padding: 0 28px">Ministero della Cultura</span><span style="padding: 0 4px">/</span><span style="padding: 0 28px">PiperFilm</span><span style="padding: 0 4px">/</span><span style="padding: 0 28px">Trieste Science+Fiction</span><span style="padding: 0 4px">/</span><span style="padding: 0 28px">Asmodee</span><span style="padding: 0 4px">/</span>
-        <span style="padding: 0 28px">COMICON</span><span style="padding: 0 4px">/</span><span style="padding: 0 28px">Cinecittà</span><span style="padding: 0 4px">/</span><span style="padding: 0 28px">Vision Distribution</span><span style="padding: 0 4px">/</span><span style="padding: 0 28px">Ministero della Cultura</span><span style="padding: 0 4px">/</span><span style="padding: 0 28px">PiperFilm</span><span style="padding: 0 4px">/</span><span style="padding: 0 28px">Trieste Science+Fiction</span><span style="padding: 0 4px">/</span><span style="padding: 0 28px">Asmodee</span><span style="padding: 0 4px">/</span>
-      </div>
+      <p class="nums-note" data-reveal>Dati riportati nelle presentazioni dei progetti AKA LAB.</p>
     </div>
   </section>
 
-  <!-- 365 / APPROCCIO -->
-  <div style="background: #120F0E; color: #FBFAF9"><section id="approccio" style="max-width: 1360px; margin: 0 auto; padding: clamp(72px, 10vw, 140px) clamp(16px, 4vw, 48px)">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(32px, 6vw, 96px); align-items: end">
-      <div>
-        <p style="margin: 0 0 20px; font-family: Archivo, sans-serif; font-size: 12px; letter-spacing: .2em; color: #E8605B; text-transform: uppercase">01 — Comunicazione always on</p>
-        <h2 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(48px, 7vw, 104px); line-height: .92; text-transform: uppercase">365 giorni,<br>non solo una<br>settimana.</h2>
+  <!-- 365 -->
+  <section class="dark sec approach" id="approccio" aria-labelledby="ap-title" style="padding-top:0">
+    <div class="wrap">
+      <div class="approach-grid">
+        <div>
+          <p class="eyebrow" data-reveal><span class="n">01</span>Comunicazione always on</p>
+          <h2 class="display h2 lines" id="ap-title"><span class="ln" style="--i:0"><span>365 giorni,</span></span><span class="ln" style="--i:1"><span>non solo una</span></span><span class="ln" style="--i:2"><span>settimana.</span></span></h2>
+          <p class="lead" data-reveal style="margin-top:36px">Un festival non è un singolo evento: è un brand culturale, una piattaforma editoriale e una community. Costruiamo identità e relazioni continuative con il pubblico.</p>
+        </div>
+        <div class="ring-box" aria-hidden="true">
+          <div class="ring">
+            <span>365 giorni</span><span class="r">Pre</span><span>Non solo una settimana</span><span class="r">Build-up</span><span>365 giorni</span><span class="r">Live</span><span>Non solo una settimana</span><span class="r">Post</span>
+          </div>
+          <div class="ring-core" data-count="365">365</div>
+        </div>
       </div>
-      <p style="margin: 0; font-size: clamp(17px, 1.4vw, 20px); line-height: 1.6; color: #D9D3C8; max-width: 520px">Un festival non è un singolo evento: è un brand culturale, una piattaforma editoriale e una community. Costruiamo identità e relazioni continuative con il pubblico.</p>
-    </div>
-
-    <!-- timeline -->
-    <div style="margin-top: clamp(56px, 8vw, 104px)">
-      <div style="position: relative; height: 2px; background: rgba(251,250,249,.15)">
-        <div class="bar" style="position: absolute; left: 0; top: 0; height: 2px; background: #E8605B"></div>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 0">
-        <div class="phase" style="padding: 28px 28px 8px 0; border-right: 1px solid rgba(251,250,249,.1)">
-          <p style="margin: 0; font-family: Archivo, sans-serif; font-size: 12px; color: #A8A29A">T-90 → T-30</p>
-          <h3 style="margin: 14px 0 10px; font-family: Anton, sans-serif; font-weight: 400; font-size: 40px; text-transform: uppercase">Pre</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #D9D3C8">Posizionamento, teasing e costruzione relazionale.</p>
-        </div>
-        <div class="phase" style="padding: 28px 28px 8px; border-right: 1px solid rgba(251,250,249,.1)">
-          <p style="margin: 0; font-family: Archivo, sans-serif; font-size: 12px; color: #A8A29A">T-30 → T-0</p>
-          <h3 style="margin: 14px 0 10px; font-family: Anton, sans-serif; font-weight: 400; font-size: 40px; text-transform: uppercase">Build-up</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #D9D3C8">Programma, ospiti, partnership e community.</p>
-        </div>
-        <div class="phase" style="padding: 28px 28px 8px; border-right: 1px solid rgba(251,250,249,.1)">
-          <p style="margin: 0; font-family: Archivo, sans-serif; font-size: 12px; color: #E8605B; display: flex; gap: 8px; align-items: center"><span class="rec" style="width: 8px; height: 8px; border-radius: 50%; background: #E8605B; display: inline-block"></span>ON AIR</p>
-          <h3 style="margin: 14px 0 10px; font-family: Anton, sans-serif; font-weight: 400; font-size: 40px; text-transform: uppercase; color: #E8605B">Live</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #D9D3C8">Coverage, creator, format, talent ed experience.</p>
-        </div>
-        <div class="phase" style="padding: 28px 0 8px 28px">
-          <p style="margin: 0; font-family: Archivo, sans-serif; font-size: 12px; color: #A8A29A">T+1 → next edition</p>
-          <h3 style="margin: 14px 0 10px; font-family: Anton, sans-serif; font-weight: 400; font-size: 40px; text-transform: uppercase">Post</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #D9D3C8">Memoria, risultati, contenuti e sviluppo dell'edizione successiva.</p>
+      <div class="phases">
+        <div class="phases-bar"><i></i></div>
+        <div class="phases-grid">
+          <div class="phase"><span class="k">T-90 → T-30</span><h3>Pre</h3><p>Posizionamento, teasing e costruzione relazionale.</p></div>
+          <div class="phase"><span class="k">T-30 → T-0</span><h3>Build-up</h3><p>Programma, ospiti, partnership e community.</p></div>
+          <div class="phase"><span class="k rec"><i></i>On air</span><h3>Live</h3><p>Coverage, creator, format, talent ed experience.</p></div>
+          <div class="phase"><span class="k">T+1 → prossima edizione</span><h3>Post</h3><p>Memoria, risultati, contenuti e sviluppo dell'edizione successiva.</p></div>
         </div>
       </div>
     </div>
-  </section></div>
+  </section>
 
   <!-- SERVIZI -->
-  <section id="servizi" style="background: #FBFAF9; color: #120F0E">
-    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(72px, 10vw, 140px) clamp(16px, 4vw, 48px)">
-      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 48px">
+  <section class="cream sec" id="servizi" aria-labelledby="sv-title">
+    <div class="wrap">
+      <div class="svc-head">
         <div>
-          <p style="margin: 0 0 20px; font-family: Archivo, sans-serif; font-size: 12px; letter-spacing: .2em; color: #9B1E22; text-transform: uppercase">02 — Dalla strategia all'attivazione</p>
-          <h2 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(48px, 7vw, 104px); line-height: .92; text-transform: uppercase">Come costruiamo<br>rilevanza</h2>
+          <p class="eyebrow" data-reveal><span class="n">02</span>Dalla strategia all'attivazione</p>
+          <h2 class="display h2 lines" id="sv-title"><span class="ln" style="--i:0"><span>Come costruiamo</span></span><span class="ln" style="--i:1"><span>rilevanza</span></span></h2>
         </div>
-        <p style="margin: 0; font-size: 14px; color: #5C5650">Clicca un servizio per i dettagli</p>
+        <p class="lead" data-reveal style="max-width:380px">Le nostre aree di competenza, che combiniamo su misura in base alle tue esigenze.</p>
       </div>
-      <div style="border-top: 1px solid #120F0E">
-        <details id="strategy" class="svc-item" style="border-bottom: 1px solid #120F0E">
-          <summary class="svc" style="display: grid; grid-template-columns: 72px minmax(0, 1.1fr) minmax(0, 1fr) 44px; gap: 24px; align-items: center; padding: 32px 0; color: #120F0E; cursor: pointer; list-style: none">
-            <span class="svc-n" style="font-size: 14px; font-weight: 600; color: #9B1E22">01</span>
-            <span style="font-family: Anton, sans-serif; font-size: clamp(28px, 3.4vw, 48px); text-transform: uppercase; line-height: 1">Strategy &amp; Marketing</span>
-            <span class="svc-d" style="font-size: 16px; line-height: 1.5; color: #5C5650">Posizionamento, audience strategy, campagne ADV/OOH, KPI e pianificazione.</span>
-            <svg class="arr" aria-hidden="true" width="28" height="28" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 2v10M2 7h10"></path></svg>
-          </summary>
-          <div class="svc-panel" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(24px, 4vw, 64px); padding: 8px 0 48px 96px">
-            <div>
-              <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #5C5650">Cosa facciamo</p>
-              <ul style="margin: 0; padding: 0; list-style: none">
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">01.1</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Posizionamento</span></li>
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">01.2</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Audience strategy</span></li>
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">01.3</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Campagne ADV / OOH</span></li>
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">01.4</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">KPI</span></li>
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">01.5</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Pianificazione</span></li>
-              </ul>
-            </div>
-            <div style="display: flex; flex-direction: column; justify-content: flex-end; gap: 32px">
-              <a class="btn" href="#contatti" style="align-self: flex-start; background: #120F0E; color: #FBFAF9; text-decoration: none; padding: 16px 24px; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; gap: 12px; align-items: center">Parliamone
-                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"></path></svg></a>
-            </div>
+      <div class="svc-list" data-reveal>
+        <details class="svc-item" id="strategy">
+          <summary class="svc"><span class="n">01</span><span class="t">Strategy &amp; Marketing</span><span class="d">Posizionamento, audience strategy, campagne ADV/OOH, KPI e pianificazione.</span><span class="plus" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 2v14M2 9h14"/></svg></span></summary>
+          <div class="svc-panel">
+            <ul><li><small>01.1</small><span>Posizionamento</span></li><li><small>01.2</small><span>Audience strategy</span></li><li><small>01.3</small><span>Campagne ADV / OOH</span></li><li><small>01.4</small><span>KPI</span></li><li><small>01.5</small><span>Pianificazione</span></li></ul>
+            <div class="side"><a class="btn btn-red" href="#contatti">Parliamone <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"/></svg></a></div>
           </div>
         </details>
-        <details id="content" class="svc-item" style="border-bottom: 1px solid #120F0E">
-          <summary class="svc" style="display: grid; grid-template-columns: 72px minmax(0, 1.1fr) minmax(0, 1fr) 44px; gap: 24px; align-items: center; padding: 32px 0; color: #120F0E; cursor: pointer; list-style: none">
-            <span class="svc-n" style="font-size: 14px; font-weight: 600; color: #9B1E22">02</span>
-            <span style="font-family: Anton, sans-serif; font-size: clamp(28px, 3.4vw, 48px); text-transform: uppercase; line-height: 1">Content, Social &amp; Creator</span>
-            <span class="svc-d" style="font-size: 16px; line-height: 1.5; color: #5C5650">Piani editoriali, format, gestione social, creator strategy e contenuti live.</span>
-            <svg class="arr" aria-hidden="true" width="28" height="28" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 2v10M2 7h10"></path></svg>
-          </summary>
-          <div class="svc-panel" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(24px, 4vw, 64px); padding: 8px 0 48px 96px">
-            <div>
-              <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #5C5650">Cosa facciamo</p>
-              <ul style="margin: 0; padding: 0; list-style: none">
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">02.1</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Piani editoriali</span></li>
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">02.2</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Sviluppo format</span></li>
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">02.3</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Gestione canali social</span></li>
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">02.4</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Creator strategy</span></li>
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">02.5</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Contenuti live</span></li>
-              </ul>
-            </div>
-            <div style="display: flex; flex-direction: column; justify-content: flex-end; gap: 32px">
-              <a class="btn" href="#contatti" style="align-self: flex-start; background: #120F0E; color: #FBFAF9; text-decoration: none; padding: 16px 24px; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; gap: 12px; align-items: center">Parliamone
-                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"></path></svg></a>
-            </div>
+        <details class="svc-item" id="content">
+          <summary class="svc"><span class="n">02</span><span class="t">Content, Social &amp; Creator</span><span class="d">Piani editoriali, format, gestione social, creator strategy e contenuti live.</span><span class="plus" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 2v14M2 9h14"/></svg></span></summary>
+          <div class="svc-panel">
+            <ul><li><small>02.1</small><span>Piani editoriali</span></li><li><small>02.2</small><span>Sviluppo format</span></li><li><small>02.3</small><span>Gestione canali social</span></li><li><small>02.4</small><span>Creator strategy</span></li><li><small>02.5</small><span>Contenuti live</span></li></ul>
+            <div class="side"><a class="btn btn-red" href="#contatti">Parliamone <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"/></svg></a></div>
           </div>
         </details>
-        <details id="partnership" class="svc-item" style="border-bottom: 1px solid #120F0E">
-          <summary class="svc" style="display: grid; grid-template-columns: 72px minmax(0, 1.1fr) minmax(0, 1fr) 44px; gap: 24px; align-items: center; padding: 32px 0; color: #120F0E; cursor: pointer; list-style: none">
-            <span class="svc-n" style="font-size: 14px; font-weight: 600; color: #9B1E22">03</span>
-            <span style="font-family: Anton, sans-serif; font-size: clamp(28px, 3.4vw, 48px); text-transform: uppercase; line-height: 1">Partnership &amp; Business Dev</span>
-            <span class="svc-d" style="font-size: 16px; line-height: 1.5; color: #5C5650">Media partnership, brand collaboration, stakeholder e relazioni industry.</span>
-            <svg class="arr" aria-hidden="true" width="28" height="28" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 2v10M2 7h10"></path></svg>
-          </summary>
-          <div class="svc-panel" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(24px, 4vw, 64px); padding: 8px 0 48px 96px">
-            <div>
-              <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #5C5650">Cosa facciamo</p>
-              <ul style="margin: 0; padding: 0; list-style: none">
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">03.1</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Media partnership</span></li>
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">03.2</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Brand collaboration</span></li>
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">03.3</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Relazioni con gli stakeholder</span></li>
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">03.4</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Relazioni industry</span></li>
-              </ul>
-            </div>
-            <div style="display: flex; flex-direction: column; justify-content: flex-end; gap: 32px">
-              <a class="btn" href="#contatti" style="align-self: flex-start; background: #120F0E; color: #FBFAF9; text-decoration: none; padding: 16px 24px; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; gap: 12px; align-items: center">Parliamone
-                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"></path></svg></a>
-            </div>
+        <details class="svc-item" id="partnership">
+          <summary class="svc"><span class="n">03</span><span class="t">Partnership &amp; Business Development</span><span class="d">Media partnership, brand collaboration, stakeholder e relazioni industry.</span><span class="plus" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 2v14M2 9h14"/></svg></span></summary>
+          <div class="svc-panel">
+            <ul><li><small>03.1</small><span>Media partnership</span></li><li><small>03.2</small><span>Brand collaboration</span></li><li><small>03.3</small><span>Relazioni con gli stakeholder</span></li><li><small>03.4</small><span>Relazioni industry</span></li></ul>
+            <div class="side"><a class="btn btn-red" href="#contatti">Parliamone <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"/></svg></a></div>
           </div>
         </details>
-        <details id="event" class="svc-item" style="border-bottom: 1px solid #120F0E">
-          <summary class="svc" style="display: grid; grid-template-columns: 72px minmax(0, 1.1fr) minmax(0, 1fr) 44px; gap: 24px; align-items: center; padding: 32px 0; color: #120F0E; cursor: pointer; list-style: none">
-            <span class="svc-n" style="font-size: 14px; font-weight: 600; color: #9B1E22">04</span>
-            <span style="font-family: Anton, sans-serif; font-size: clamp(28px, 3.4vw, 48px); text-transform: uppercase; line-height: 1">Event &amp; Talent Management</span>
-            <span class="svc-d" style="font-size: 16px; line-height: 1.5; color: #5C5650">Format live, talent e guest management, hospitality, attivazioni e presidio on-site.</span>
-            <svg class="arr" aria-hidden="true" width="28" height="28" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 2v10M2 7h10"></path></svg>
-          </summary>
-          <div class="svc-panel" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(24px, 4vw, 64px); padding: 8px 0 48px 96px">
-            <div>
-              <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #5C5650">Cosa facciamo</p>
-              <ul style="margin: 0; padding: 0; list-style: none">
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">04.1</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Format live</span></li>
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">04.2</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Talent e guest management</span></li>
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">04.3</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Hospitality</span></li>
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">04.4</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Attivazioni</span></li>
-              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">04.5</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Presidio on-site</span></li>
-              </ul>
-            </div>
-            <div style="display: flex; flex-direction: column; justify-content: flex-end; gap: 32px">
-              <a class="btn" href="#contatti" style="align-self: flex-start; background: #120F0E; color: #FBFAF9; text-decoration: none; padding: 16px 24px; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; gap: 12px; align-items: center">Parliamone
-                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"></path></svg></a>
-            </div>
+        <details class="svc-item" id="event">
+          <summary class="svc"><span class="n">04</span><span class="t">Event &amp; Talent Management</span><span class="d">Format live, talent e guest management, hospitality, attivazioni e presidio on-site.</span><span class="plus" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 2v14M2 9h14"/></svg></span></summary>
+          <div class="svc-panel">
+            <ul><li><small>04.1</small><span>Format live</span></li><li><small>04.2</small><span>Talent e guest management</span></li><li><small>04.3</small><span>Hospitality</span></li><li><small>04.4</small><span>Attivazioni</span></li><li><small>04.5</small><span>Presidio on-site</span></li></ul>
+            <div class="side"><a class="btn btn-red" href="#contatti">Parliamone <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"/></svg></a></div>
           </div>
         </details>
       </div>
@@ -283,147 +178,105 @@ details[open] > .svc{padding-left:12px !important}
   </section>
 
   <!-- PORTFOLIO -->
-  <div style="background: #120F0E; color: #FBFAF9"><section id="portfolio" style="max-width: 1360px; margin: 0 auto; padding: clamp(72px, 10vw, 140px) clamp(16px, 4vw, 48px)">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 56px">
-      <div>
-        <p style="margin: 0 0 20px; font-family: Archivo, sans-serif; font-size: 12px; letter-spacing: .2em; color: #E8605B; text-transform: uppercase">03 — Portfolio</p>
-        <h2 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(48px, 7vw, 104px); line-height: .92; text-transform: uppercase">Alcuni dei<br>nostri lavori</h2>
+  <section class="dark sec" id="portfolio" aria-labelledby="wk-title">
+    <div class="wrap">
+      <div class="work-head">
+        <div>
+          <p class="eyebrow" data-reveal><span class="n">03</span>Portfolio</p>
+          <h2 class="display h2 lines" id="wk-title"><span class="ln" style="--i:0"><span>Alcuni dei</span></span><span class="ln" style="--i:1"><span>nostri lavori</span></span></h2>
+        </div>
+        <p class="lead" data-reveal style="max-width:400px">Festival, pubblici e linguaggi diversi. Un lavoro su misura, dalla strategia all'attivazione.</p>
       </div>
-      <p style="margin: 0; max-width: 380px; font-size: 17px; line-height: 1.55; color: #D9D3C8">Festival, pubblici e linguaggi diversi. Un lavoro su misura, dalla strategia all'attivazione.</p>
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: clamp(24px, 3vw, 40px)">
-      <a class="card" href="progetti/italian-global-series-festival.html" style="text-decoration: none; color: #FBFAF9; display: block">
-        <div style="overflow: hidden; aspect-ratio: 4 / 3; background: #1C1A18; position: relative">
-          <div class="ph" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(135deg, #1C1A18 0 14px, #232120 14px 28px); font-family: Archivo, sans-serif; font-size: 12px; color: #A8A29A; letter-spacing: .12em; text-transform: uppercase">[ Foto: panel IGS sul palco ]</div>
-          <span style="position: absolute; left: 16px; top: 16px; background: #9B1E22; color: #FBFAF9; font-family: Archivo, sans-serif; font-size: 11px; padding: 6px 10px; letter-spacing: .12em">FESTIVAL · ROMA</span>
-        </div>
-        <div style="display: flex; justify-content: space-between; gap: 24px; padding-top: 20px; align-items: flex-start">
-          <div>
-            <h3 style="margin: 0 0 8px; font-family: Anton, sans-serif; font-weight: 400; font-size: 34px; text-transform: uppercase">Italian Global Series Festival</h3>
-            <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #D9D3C8">Valorizzare il potenziale del festival e amplificarne la visibilità.</p>
+      <div class="work-grid">
+        <a class="card" href="progetti/italian-global-series-festival.html" data-cursor="Apri" data-reveal>
+          <div class="cover" style="--g:radial-gradient(90% 70% at 20% 10%,#E8605B 0%,#9B1E22 38%,#120F0E 85%)">
+            <div class="cover-bg"></div><div class="grain" aria-hidden="true"></div>
+            <span class="cover-tag">Festival · Riccione e Rimini</span><span class="cover-idx">01</span>
+            <span class="cover-word" aria-hidden="true">Series</span>
+            <span class="cover-go" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 11L11 3M5 3h6v6"/></svg></span>
           </div>
-          <span class="more" style="font-size: 12px; font-weight: 700; letter-spacing: .16em; white-space: nowrap; padding-top: 10px">SCOPRI →</span>
-        </div>
-      </a>
-      <a class="card" href="progetti/comicon.html" style="text-decoration: none; color: #FBFAF9; display: block; margin-top: clamp(0px, 6vw, 96px)">
-        <div style="overflow: hidden; aspect-ratio: 4 / 3; background: #1C1A18; position: relative">
-          <div class="ph" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(135deg, #1C1A18 0 14px, #232120 14px 28px); font-family: Archivo, sans-serif; font-size: 12px; color: #A8A29A; letter-spacing: .12em; text-transform: uppercase">[ Foto: premiazione COMICON ]</div>
-          <span style="position: absolute; left: 16px; top: 16px; background: #9B1E22; color: #FBFAF9; font-family: Archivo, sans-serif; font-size: 11px; padding: 6px 10px; letter-spacing: .12em">POP CULTURE · NAPOLI</span>
-        </div>
-        <div style="display: flex; justify-content: space-between; gap: 24px; padding-top: 20px; align-items: flex-start">
-          <div>
-            <h3 style="margin: 0 0 8px; font-family: Anton, sans-serif; font-weight: 400; font-size: 34px; text-transform: uppercase">COMICON</h3>
-            <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #D9D3C8">Contenuti, format e palinsesti che connettono cinema/TV, cultura pop e nuove generazioni.</p>
+          <div class="card-meta"><div><h3>Italian Global Series Festival</h3><p>Valorizzare il potenziale del festival e amplificarne la visibilità.</p></div><div class="stat"><b>+2.5M</b><span>Views</span></div></div>
+        </a>
+        <a class="card" href="progetti/comicon.html" data-cursor="Apri" data-reveal style="--d:120ms">
+          <div class="cover" style="--g:radial-gradient(80% 70% at 80% 20%,#FBFAF9 0%,#E8605B 30%,#9B1E22 62%,#120F0E 100%)">
+            <div class="cover-bg"></div><div class="grain" aria-hidden="true"></div>
+            <span class="cover-tag">Pop culture · Napoli</span><span class="cover-idx">02</span>
+            <span class="cover-word" aria-hidden="true">Comicon</span>
+            <span class="cover-go" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 11L11 3M5 3h6v6"/></svg></span>
           </div>
-          <span class="more" style="font-size: 12px; font-weight: 700; letter-spacing: .16em; white-space: nowrap; padding-top: 10px">SCOPRI →</span>
-        </div>
-      </a>
-      <a class="card" href="progetti/mostra-del-cinema-di-venezia.html" style="text-decoration: none; color: #FBFAF9; display: block">
-        <div style="overflow: hidden; aspect-ratio: 4 / 3; background: #1C1A18; position: relative">
-          <div class="ph" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(135deg, #1C1A18 0 14px, #232120 14px 28px); font-family: Archivo, sans-serif; font-size: 12px; color: #A8A29A; letter-spacing: .12em; text-transform: uppercase">[ Fotografia in arrivo ]</div>
-          <span style="position: absolute; left: 16px; top: 16px; background: #9B1E22; color: #FBFAF9; font-family: Archivo, sans-serif; font-size: 11px; padding: 6px 10px; letter-spacing: .12em">CINEMA · VENEZIA</span>
-        </div>
-        <div style="display: flex; justify-content: space-between; gap: 24px; padding-top: 20px; align-items: flex-start">
-          <div>
-            <h3 style="margin: 0 0 8px; font-family: Anton, sans-serif; font-weight: 400; font-size: 34px; text-transform: uppercase">Festival del Cinema di Venezia</h3>
-            <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #D9D3C8">Progetti capaci di intercettare pubblici, linguaggi e opportunità differenti.</p>
+          <div class="card-meta"><div><h3>COMICON</h3><p>Contenuti, format e palinsesti che connettono cinema/TV, cultura pop e nuove generazioni.</p></div><div class="stat"><b>+57K</b><span>Interazioni</span></div></div>
+        </a>
+        <a class="card" href="progetti/mostra-del-cinema-di-venezia.html" data-cursor="Apri" data-reveal>
+          <div class="cover" style="--g:radial-gradient(70% 60% at 50% 0%,#F3D9D2 0%,#9B1E22 45%,#120F0E 100%)">
+            <div class="cover-bg"></div><div class="grain" aria-hidden="true"></div>
+            <span class="cover-tag">Cinema · Venezia</span><span class="cover-idx">03</span>
+            <span class="cover-word" aria-hidden="true">Venezia</span>
+            <span class="cover-go" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 11L11 3M5 3h6v6"/></svg></span>
           </div>
-          <span class="more" style="font-size: 12px; font-weight: 700; letter-spacing: .16em; white-space: nowrap; padding-top: 10px">SCOPRI →</span>
-        </div>
-      </a>
-      <a class="card" href="progetti/pesaro-film-festival.html" style="text-decoration: none; color: #FBFAF9; display: block; margin-top: clamp(0px, 6vw, 96px)">
-        <div style="overflow: hidden; aspect-ratio: 4 / 3; background: #1C1A18; position: relative">
-          <div class="ph" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(135deg, #1C1A18 0 14px, #232120 14px 28px); font-family: Archivo, sans-serif; font-size: 12px; color: #A8A29A; letter-spacing: .12em; text-transform: uppercase">[ Fotografia in arrivo ]</div>
-          <span style="position: absolute; left: 16px; top: 16px; background: #9B1E22; color: #FBFAF9; font-family: Archivo, sans-serif; font-size: 11px; padding: 6px 10px; letter-spacing: .12em">CINEMA · PESARO</span>
-        </div>
-        <div style="display: flex; justify-content: space-between; gap: 24px; padding-top: 20px; align-items: flex-start">
-          <div>
-            <h3 style="margin: 0 0 8px; font-family: Anton, sans-serif; font-weight: 400; font-size: 34px; text-transform: uppercase">Pesaro Film Fest</h3>
-            <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #D9D3C8">Traghettare un festival storico verso nuovi linguaggi e una nuova audience.</p>
+          <div class="card-meta"><div><h3>Mostra del Cinema di Venezia</h3><p>Progetti capaci di intercettare pubblici, linguaggi e opportunità differenti.</p></div><div class="stat"><b>+14M</b><span>Views social</span></div></div>
+        </a>
+        <a class="card" href="progetti/pesaro-film-festival.html" data-cursor="Apri" data-reveal style="--d:120ms">
+          <div class="cover" style="--g:radial-gradient(90% 80% at 90% 90%,#E8605B 0%,#7A161A 40%,#120F0E 90%)">
+            <div class="cover-bg"></div><div class="grain" aria-hidden="true"></div>
+            <span class="cover-tag">Cinema · Pesaro</span><span class="cover-idx">04</span>
+            <span class="cover-word" aria-hidden="true">Pesaro</span>
+            <span class="cover-go" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 11L11 3M5 3h6v6"/></svg></span>
           </div>
-          <span class="more" style="font-size: 12px; font-weight: 700; letter-spacing: .16em; white-space: nowrap; padding-top: 10px">SCOPRI →</span>
-        </div>
-      </a>
-    </div>
-  </section></div>
-
-  <!-- PERCHÉ AKA LAB -->
-  <section id="agenzia" style="background: #FBFAF9; color: #120F0E">
-    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(72px, 10vw, 140px) clamp(16px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: clamp(40px, 6vw, 96px); align-items: center">
-      <div style="aspect-ratio: 4 / 5; background: repeating-linear-gradient(135deg, #E1DDDA 0 14px, #EAE7E5 14px 28px); display: flex; align-items: flex-end; justify-content: space-between; padding: 20px; box-sizing: border-box; font-family: Archivo, sans-serif; font-size: 12px; letter-spacing: .12em; color: #5C5650; text-transform: uppercase">
-        <span>[ Foto founder ]</span><span>Andrea Vailati · Francesco Marchetti</span>
-      </div>
-      <div>
-        <p style="margin: 0 0 20px; font-family: Archivo, sans-serif; font-size: 12px; letter-spacing: .2em; color: #9B1E22; text-transform: uppercase">04 — Perché AKA LAB</p>
-        <h2 style="margin: 0 0 28px; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(48px, 6vw, 88px); line-height: .92; text-transform: uppercase">Conosciamo i festival dall'interno.</h2>
-        <p style="margin: 0 0 32px; font-size: 18px; line-height: 1.6; color: #3B3733">Non un'agenzia esterna, ma professionisti che hanno lavorato nei festival da prospettive diverse.</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px">
-          <span style="border: 1px solid #120F0E; padding: 8px 14px; font-size: 13px; font-weight: 600">Direzione artistica</span>
-          <span style="border: 1px solid #120F0E; padding: 8px 14px; font-size: 13px; font-weight: 600">Strategia</span>
-          <span style="border: 1px solid #120F0E; padding: 8px 14px; font-size: 13px; font-weight: 600">Curatela</span>
-          <span style="border: 1px solid #120F0E; padding: 8px 14px; font-size: 13px; font-weight: 600">Marketing</span>
-          <span style="border: 1px solid #120F0E; padding: 8px 14px; font-size: 13px; font-weight: 600">Contenuti</span>
-          <span style="border: 1px solid #120F0E; padding: 8px 14px; font-size: 13px; font-weight: 600">Eventi</span>
-          <span style="border: 1px solid #120F0E; padding: 8px 14px; font-size: 13px; font-weight: 600">Media &amp; social</span>
-          <span style="border: 1px solid #120F0E; padding: 8px 14px; font-size: 13px; font-weight: 600">Creator economy</span>
-          <span style="border: 1px solid #120F0E; padding: 8px 14px; font-size: 13px; font-weight: 600">Partnership</span>
-          <span style="border: 1px solid #120F0E; padding: 8px 14px; font-size: 13px; font-weight: 600">Gestione operativa</span>
-        </div>
-        <a class="btn cta-btn" href="#agenzia" style="background: #120F0E; color: #FBFAF9; text-decoration: none; padding: 18px 28px; font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex">Conosci AKA LAB</a>
+          <div class="card-meta"><div><h3>Pesaro Film Festival</h3><p>Traghettare un festival storico verso nuovi linguaggi e una nuova audience.</p></div><div class="stat"><b>+955K</b><span>Views</span></div></div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section id="contatti" style="background: #9B1E22; color: #FBFAF9">
-    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(72px, 10vw, 140px) clamp(16px, 4vw, 48px)">
-      <p style="margin: 0 0 24px; font-family: Archivo, sans-serif; font-size: 12px; letter-spacing: .2em; text-transform: uppercase">Prossimo ciak</p>
-      <h2 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(56px, 10vw, 160px); line-height: .88; text-transform: uppercase">Costruiamo il<br>prossimo progetto<br>insieme.</h2>
-      <div style="margin-top: 48px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
-        <p style="margin: 0; font-size: 20px; line-height: 1.5; max-width: 480px">Un festival, un progetto speciale o una partnership: raccontaci da dove parti.</p>
-        <a class="btn cta-btn" href="mailto:francesco@aka-lab.it" style="background: #120F0E; color: #FBFAF9; text-decoration: none; padding: 22px 34px; font-size: 14px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; gap: 12px; align-items: center">Parliamo di un progetto
-          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"></path></svg></a>
+  <!-- PERCHE -->
+  <section class="cream sec" id="agenzia" aria-labelledby="why-title">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal><span class="n">04</span>Perché AKA LAB</p>
+      <h2 class="display h2 lines" id="why-title" style="margin-bottom:clamp(48px,6vw,96px)"><span class="ln" style="--i:0"><span>Conosciamo i festival</span></span><span class="ln" style="--i:1"><span style="color:var(--red)">dall'interno.</span></span></h2>
+      <p class="scrub" data-hl="festival|diverse.">Non un'agenzia esterna, ma professionisti che hanno lavorato nei festival da prospettive diverse.</p>
+      <div class="chips" data-reveal>
+        <span class="chip">Direzione artistica</span><span class="chip">Strategia</span><span class="chip">Curatela</span><span class="chip">Marketing</span><span class="chip">Contenuti</span><span class="chip">Eventi</span><span class="chip">Media</span><span class="chip">Social</span><span class="chip">Creator economy</span><span class="chip">Partnership</span><span class="chip">Gestione operativa</span>
       </div>
+    </div>
+  </section>
+
+  <!-- SHELL2-START -->
+  <!-- CTA -->
+  <section class="redbg cta" id="contatti" aria-labelledby="cta-title">
+    <div class="wrap" style="padding-top:clamp(72px,9vw,120px)"><p class="eyebrow" style="color:var(--paper);margin:0" data-reveal>Prossimo ciak</p></div>
+    <h2 class="sr" id="cta-title">Costruiamo il prossimo progetto insieme.</h2>
+    <div class="cta-mq" data-mq="1" data-speed="1.1" aria-hidden="true">
+      <span>Costruiamo il prossimo progetto insieme</span><span class="o">✦</span><span class="o">Costruiamo il prossimo progetto insieme</span><span>✦</span>
+    </div>
+    <div class="wrap cta-row">
+      <p class="lead" data-reveal>Un festival, un progetto speciale o una partnership: raccontaci da dove parti.</p>
+      <a class="btn btn-ink big-btn magnetic" href="mailto:francesco@aka-lab.it" data-reveal>Parliamo di<br>un progetto
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11L11 3M5 3h6v6"/></svg></a>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <div style="background: #120F0E; color: #FBFAF9"><footer style="max-width: 1360px; margin: 0 auto; padding: 72px clamp(16px, 4vw, 48px) 40px">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 40px; padding-bottom: 56px; border-bottom: 1px solid rgba(251,250,249,.15)">
-      <div>
-        <p style="margin: 0 0 12px; font-family: Anton, sans-serif; font-size: 32px">AKA LAB</p>
-        <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #A8A29A">Festival strategy &amp; communication. Aiutiamo a costruire festival che vivono 365 giorni l'anno.</p>
+  <footer class="dark ftr">
+    <div class="wrap">
+      <div class="ftr-grid">
+        <div><h4>AKA LAB</h4><p style="color:var(--on-dark);max-width:300px">Festival strategy &amp; communication. Aiutiamo a costruire festival che vivono 365 giorni l'anno.</p></div>
+        <div><h4>Contatti</h4>
+          <p class="person"><b>Francesco Marchetti</b><a href="mailto:francesco@aka-lab.it">francesco@aka-lab.it</a></p>
+          <p class="person"><b>Andrea Vailati</b><a href="mailto:andrea@aka-lab.it">andrea@aka-lab.it</a></p>
+        </div>
+        <div><h4>&nbsp;</h4>
+          <p class="person"><b>Alessia Marazzi</b><a href="mailto:alessia@aka-lab.it">alessia@aka-lab.it</a></p>
+          <p class="person"><b>Miele Pizzini Cavagna</b><a href="mailto:miele@aka-lab.it">miele@aka-lab.it</a></p>
+        </div>
+        <nav class="ftr-nav" aria-label="Footer"><h4>Sito</h4>
+          <a href="index.html#approccio">Approccio</a><a href="index.html#servizi">Servizi</a><a href="index.html#portfolio">Portfolio</a><a href="index.html#agenzia">Agenzia</a><a href="#contatti">Contatti</a>
+        </nav>
       </div>
-      <div style="font-size: 15px; line-height: 1.5">
-        <p style="margin: 0 0 4px; font-weight: 600">Francesco Marchetti</p>
-        <a href="mailto:francesco@aka-lab.it" style="color: #A8A29A">francesco@aka-lab.it</a>
-        <p style="margin: 18px 0 4px; font-weight: 600">Andrea Vailati</p>
-        <a href="mailto:andrea@aka-lab.it" style="color: #A8A29A">andrea@aka-lab.it</a>
-      </div>
-      <div style="font-size: 15px; line-height: 1.5">
-        <p style="margin: 0 0 4px; font-weight: 600">Alessia Marazzi</p>
-        <a href="mailto:alessia@aka-lab.it" style="color: #A8A29A">alessia@aka-lab.it</a>
-        <p style="margin: 18px 0 4px; font-weight: 600">Miele Pizzini Cavagna</p>
-        <a href="mailto:miele@aka-lab.it" style="color: #A8A29A">miele@aka-lab.it</a>
-      </div>
-      <nav class="nav" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
-        <a href="#approccio" style="text-decoration: none">Approccio</a>
-        <a href="#servizi" style="text-decoration: none">Servizi</a>
-        <a href="#portfolio" style="text-decoration: none">Portfolio</a>
-        <a href="#agenzia" style="text-decoration: none">Agenzia</a>
-        <a href="#contatti" style="text-decoration: none">Contatti</a>
-      </nav>
+      <p class="wordmark fit" data-fit data-go aria-hidden="true"><span class="ln"><span>AKA LAB</span></span></p>
+      <div class="ftr-bottom"><span>© 2026 AKA LAB</span><a href="admin.html">Area riservata</a></div>
     </div>
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding-top: 28px; font-family: Archivo, sans-serif; font-size: 12px; color: #A8A29A; letter-spacing: .1em">
-      <span>© 2026 AKA LAB · <a href="admin.html" style="color: #A8A29A">Area riservata</a></span>
-      <span>00:00:00:00 — FINE</span>
-    </div>
-  </footer></div>
-</div>
-
-<script>
-(function(){function openFromHash(){var id=location.hash.slice(1);if(!id)return;var d=document.getElementById(id);if(d&&d.tagName==='DETAILS'){d.open=true;setTimeout(function(){d.scrollIntoView({block:'start'})},50)}}
-window.addEventListener('hashchange',openFromHash);openFromHash();})();
-</script>
+  </footer>
+  <!-- SHELL2-END -->
+</main>
 </body>
 </html>
