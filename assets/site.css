@@ -21,7 +21,7 @@ button{font:inherit;color:inherit}
 .redbg{background:var(--red);color:var(--paper)}
 .display{font-family:Anton,"Arial Narrow",sans-serif;font-weight:400;text-transform:uppercase;line-height:.9;letter-spacing:-.005em;margin:0}
 .eyebrow{display:flex;align-items:center;gap:12px;margin:0 0 28px;font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
-.dark .eyebrow{color:var(--red-light)}
+.dark .eyebrow,.hero .eyebrow{color:var(--red-light)}
 .eyebrow .n{font-variant-numeric:tabular-nums;opacity:.7}
 .eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
 .h2{font-size:clamp(52px,8.4vw,136px)}
@@ -161,9 +161,9 @@ button{font:inherit;color:inherit}
 .mq-row.outline span.slash{-webkit-text-stroke:0;color:var(--red);padding:0}
 
 /* ---------- Numbers ---------- */
-.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));border-top:1px solid rgba(251,250,249,.18)}
+.nums{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));column-gap:28px;border-top:1px solid rgba(251,250,249,.18)}
 .num{padding:36px 28px 36px 0;border-bottom:1px solid rgba(251,250,249,.18)}
-.num b{display:block;font-family:Anton,sans-serif;font-weight:400;font-size:clamp(64px,8vw,128px);line-height:.95;color:var(--paper);font-variant-numeric:tabular-nums}
+.num b{display:block;font-family:Anton,sans-serif;font-weight:400;font-size:clamp(60px,6.2vw,108px);white-space:nowrap;line-height:.95;color:var(--paper);font-variant-numeric:tabular-nums}
 .num b em{font-style:normal;color:var(--red-light)}
 .num p{margin:14px 0 0;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
 .num small{display:block;margin-top:6px;font-size:14px;letter-spacing:0;text-transform:none;font-weight:400;color:var(--on-dark)}
