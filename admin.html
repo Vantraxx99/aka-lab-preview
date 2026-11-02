@@ -100,6 +100,20 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--red);outline-off
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(16px);opacity:0;visibility:hidden;background:var(--ink);color:var(--paper);padding:14px 20px;font-size:14px;transition:transform .3s ease,opacity .3s ease,visibility .3s;z-index:20;max-width:calc(100% - 32px)}
 .toast.on{transform:translateX(-50%) translateY(0);opacity:1;visibility:visible}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.gate{min-height:100vh;display:none;align-items:center;justify-content:center;background:var(--ink);color:var(--paper);padding:24px}
+.locked .gate{display:flex}
+.locked .app,.locked .toast{display:none}
+.gate form{width:100%;max-width:420px;display:flex;flex-direction:column;gap:18px}
+.gate .brand{font-size:56px;line-height:1}
+.gate label{display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#D9D3C8}
+.gate input{min-height:52px;padding:0 16px;border:1px solid #5C5650;background:#1C1816;color:var(--paper);font-size:18px;letter-spacing:.06em}
+.gate input:focus{outline:2px solid #E8605B;outline-offset:0;border-color:#E8605B}
+.gate .btn{background:var(--red);border-color:var(--red);color:var(--paper);min-height:52px;justify-content:center}
+.gate .btn:hover{background:#7E181C}
+.gate .err{min-height:20px;margin:0;font-size:14px;color:#F2A7A3}
+.gate .back{color:#D9D3C8;font-size:13px}
+.side .logout{all:unset;cursor:pointer;color:var(--grey);font-size:13px;margin-top:6px;display:inline-block}
+.side .logout:hover{color:var(--paper)}
 @media (max-width: 860px){
 .app{flex-direction:column}
 .side{width:auto;height:auto;position:static;padding:18px 16px;gap:14px}
@@ -112,13 +126,24 @@ h1{font-size:36px}
 }
 </style>
 </head>
-<body>
+<body class="locked">
+<div class="gate" id="gate">
+  <form id="gate-form" autocomplete="off">
+    <p class="brand">AKA LAB</p>
+    <p class="sub" style="margin:-8px 0 8px">Area riservata</p>
+    <label for="gate-code">Codice di accesso<input id="gate-code" type="password" autocomplete="current-password" required></label>
+    <p class="err" id="gate-err" role="alert"></p>
+    <button class="btn" type="submit">Entra</button>
+    <a class="back" href="index.html">← Torna al sito</a>
+  </form>
+</div>
 <div class="app">
   <aside class="side">
     <div>
       <p class="brand">AKA LAB</p>
       <p class="sub">Pannello admin · demo</p>
-      <a class="back" href="index.html">← Torna al sito</a>
+      <a class="back" href="index.html">← Torna al sito</a><br>
+      <button class="logout" type="button" id="logout">Esci dall'area riservata</button>
     </div>
     <nav class="nav" aria-label="Sezioni" id="nav"></nav>
   </aside>
@@ -126,6 +151,19 @@ h1{font-size:36px}
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<script>
+(function(){
+  /* Accesso alla demo. Nella versione definitiva l'accesso passa dal login di Supabase (un account per persona). */
+  var H='31504243f967e1f6aa7ac22d27f5e2b60878428efaac217197b32fd20176891d', K='akalab-admin-ok';
+  var b=document.body, f=document.getElementById('gate-form'), inp=document.getElementById('gate-code'), err=document.getElementById('gate-err');
+  function ok(){b.classList.remove('locked');var m=document.getElementById('main');if(m)m.focus()}
+  try{if(sessionStorage.getItem(K)===H)ok();else inp.focus()}catch(e){inp.focus()}
+  function sha(t){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(t)).then(function(buf){return [].map.call(new Uint8Array(buf),function(x){return ('0'+x.toString(16)).slice(-2)}).join('')})}
+  f.addEventListener('submit',function(e){e.preventDefault();err.textContent='';
+    sha(inp.value.trim().toLowerCase()).then(function(h){if(h===H){try{sessionStorage.setItem(K,H)}catch(x){}inp.value='';ok()}else{err.textContent='Codice non corretto. Riprova.';inp.select()}})});
+  document.getElementById('logout').addEventListener('click',function(){try{sessionStorage.removeItem(K)}catch(x){}b.classList.add('locked');inp.focus()});
+})();
+</script>
 <script>
 (function(){
 'use strict';
