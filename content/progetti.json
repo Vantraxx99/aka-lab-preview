@@ -1,0 +1,102 @@
+[
+  {
+    "slug": "italian-global-series-festival",
+    "titolo": "Italian Global Series Festival",
+    "etichetta": "Festival · Riccione e Rimini",
+    "sottotitolo": "Riccione e Rimini, 3 – 11 luglio 2026. «La stagione delle serie inizia qui.»",
+    "discipline": ["Comunicazione strategica", "Strategia e direzione marketing", "Media, digital, social e OOH", "Creator strategy"],
+    "risultati": [
+      {"valore": "+2.5M", "label": "Visualizzazioni totali"},
+      {"valore": "+29K", "label": "Interazioni"}
+    ],
+    "nota": "Risultati 100% organici, come riportato nella presentazione AKA LAB.",
+    "obiettivo": "Valorizzare il potenziale del festival e amplificarne la visibilità.",
+    "strategia": [
+      {"titolo": "Copertura mediatica integrata", "testo": "Stampa, radio, TV, digital e OOH."},
+      {"titolo": "Campagna outdoor", "testo": "Affissioni e maxi-impianti strategici sul territorio urbano e sui trasporti."},
+      {"titolo": "Creator strategy", "testo": "Coinvolgimento di oltre 10 content creator e ideazione di un format ad hoc."}
+    ],
+    "iniziative_titolo": "",
+    "iniziative": [],
+    "materiali": ["Panel «La casa nella prateria» sul palco del festival", "Pagina de la Repubblica con la campagna del festival", "Vista aerea di una location con affissione della campagna"],
+    "servizi": ["strategy", "content"],
+    "successivo": "mostra-del-cinema-di-venezia"
+  },
+  {
+    "slug": "comicon",
+    "titolo": "COMICON",
+    "etichetta": "Pop culture · Napoli",
+    "sottotitolo": "Cinema, TV, fumetto, creator, gaming e cultura pop in un unico ecosistema.",
+    "discipline": ["Direzione artistica & curatela", "Talent & event management", "Partnership & collab"],
+    "risultati": [
+      {"valore": "+2.1M", "label": "Visualizzazioni complessive"},
+      {"valore": "+57K", "label": "Interazioni complessive"},
+      {"valore": "+850", "label": "Biglietti venduti per l'evento"}
+    ],
+    "nota": "I biglietti venduti si riferiscono all'evento Millennium Actress; visualizzazioni e interazioni sono complessive.",
+    "obiettivo": "Sviluppare contenuti, format e palinsesti capaci di connettere cinema/TV, cultura pop e nuove generazioni in modo innovativo.",
+    "strategia": [
+      {"titolo": "Connessione tra mondi diversi", "testo": "Cinema, fumetto, creator, gaming e serie TV in un unico ecosistema."},
+      {"titolo": "Curatela editoriale", "testo": "Sviluppo di talk, panel ed eventi live in linea con gli interessi del pubblico."},
+      {"titolo": "Creator & guest management", "testo": "Coinvolgimento di creator e ospiti appartenenti a mondi diversi per ampliare il racconto."}
+    ],
+    "iniziative_titolo": "Qualche iniziativa del 2026",
+    "iniziative": [
+      {"kicker": "Nuovi premi e concorsi", "titolo": "COMICON Visions Awards", "partner": "", "testo": "Ideazione e gestione della prima edizione di premi dedicati a cinema, animazione e contenuti digitali."},
+      {"kicker": "Evento speciale", "titolo": "Criticoni × Millennium Actress", "partner": "", "testo": "Organizzazione e coordinamento dell'evento per il ritorno in sala di Millennium Actress."}
+    ],
+    "materiali": ["Premiazione dei COMICON Visions Awards", "Consegna di un premio sul palco di COMICON", "Attestato del premio per il cortometraggio The Frog"],
+    "servizi": ["content", "partnership", "event"],
+    "successivo": "italian-global-series-festival"
+  },
+  {
+    "slug": "mostra-del-cinema-di-venezia",
+    "titolo": "Mostra del Cinema di Venezia",
+    "etichetta": "Cinema · Venezia",
+    "sottotitolo": "Tre progetti sviluppati per l'edizione 2026, con partner diversi.",
+    "discipline": ["Direzione artistica", "Talent & event management", "Partnership & collab", "Creator strategy"],
+    "risultati": [
+      {"valore": "37", "label": "Ospiti"},
+      {"valore": "29", "label": "Realtà partner"},
+      {"valore": "+400K", "label": "Interazioni"},
+      {"valore": "+3M", "label": "Reach complessiva"},
+      {"valore": "+14M", "label": "Visualizzazioni social"},
+      {"valore": "+500", "label": "Contenuti prodotti"}
+    ],
+    "nota": "Numeri riferiti complessivamente ai progetti AKA LAB alla Mostra 2026, come riportato nella presentazione.",
+    "obiettivo": "Ideare e sviluppare progetti capaci di intercettare pubblici, linguaggi e opportunità differenti.",
+    "strategia": [],
+    "iniziative_titolo": "I progetti del 2026",
+    "iniziative": [
+      {"kicker": "Nuovi linguaggi e pubblici", "titolo": "Venezia Cult", "partner": "in collaborazione con Comicon", "testo": "Cinema e cultura pop si incontrano in un palinsesto di talk, podcast ed eventi."},
+      {"kicker": "Eventi, interviste e feste", "titolo": "La Villa", "partner": "in collaborazione con Unifrance", "testo": "Punto d'incontro per personalità del cinema, giornalisti e professionisti, tra panel, junket ed eventi diurni e serali."},
+      {"kicker": "Format editoriale", "titolo": "Fuori Morning Show", "partner": "in collaborazione con La Biennale", "testo": "Un format d'intrattenimento che racconta il festival con un linguaggio adatto per un pubblico digitale."}
+    ],
+    "materiali": ["Immagini dei progetti a Venezia in arrivo"],
+    "servizi": ["content", "partnership", "event"],
+    "successivo": "pesaro-film-festival"
+  },
+  {
+    "slug": "pesaro-film-festival",
+    "titolo": "Pesaro Film Festival",
+    "etichetta": "Cinema · Pesaro",
+    "sottotitolo": "Un festival storico del cinema italiano.",
+    "discipline": ["Social media management", "Talent & event management", "Creator strategy"],
+    "risultati": [
+      {"valore": "+955K", "label": "Visualizzazioni complessive"},
+      {"valore": "+22K", "label": "Interazioni"}
+    ],
+    "nota": "Risultati dei canali social del festival, come riportato nella presentazione.",
+    "obiettivo": "Traghettare un festival storico verso nuovi linguaggi e una nuova audience.",
+    "strategia": [
+      {"titolo": "Strategia e identità social", "testo": "Definizione del piano editoriale, sviluppo dell'identità visiva e dello storytelling."},
+      {"titolo": "Gestione dei canali", "testo": "Pianificazione e pubblicazione dei contenuti, con copertura social prima, durante e dopo il festival."},
+      {"titolo": "Creator strategy", "testo": "Coinvolgimento di creator per ampliare il racconto e raggiungere nuovi pubblici."}
+    ],
+    "iniziative_titolo": "",
+    "iniziative": [],
+    "materiali": ["Immagini del Pesaro Film Festival in arrivo"],
+    "servizi": ["content", "event"],
+    "successivo": "comicon"
+  }
+]

@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mostra del Cinema di Venezia — Case study AKA LAB</title>
+<meta name="description" content="Ideare e sviluppare progetti capaci di intercettare pubblici, linguaggi e opportunità differenti.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#120F0E}
+a{color:inherit}a:hover{color:inherit}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes slide{to{transform:translateX(-50%)}}
+@keyframes slideBack{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@keyframes blink{50%{opacity:.15}}
+@keyframes fill{0%{width:0}85%{width:100%}100%{width:100%}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ln{display:block;overflow:hidden;padding-bottom:.04em}
+.ln>span{display:inline-block;animation:rise 1s cubic-bezier(.2,.75,.1,1) both}
+.ln:nth-child(2)>span{animation-delay:.12s}
+.ln:nth-child(3)>span{animation-delay:.24s}
+.fade{animation:fadeUp 1s .5s cubic-bezier(.2,.75,.1,1) both}
+.track{display:flex;width:max-content;animation:slide 38s linear infinite}
+.track.back{animation:slideBack 44s linear infinite}
+.rec{animation:blink 1.4s steps(1) infinite}
+.bar{animation:fill 7s cubic-bezier(.6,0,.3,1) infinite}
+.badge{animation:spin 18s linear infinite}
+.btn{transition:transform .25s ease, background-color .25s ease, color .25s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-ghost:hover{background:#120F0E;color:#FBFAF9}
+.svc{transition:background-color .35s ease, color .35s ease, padding .35s ease}
+.svc:hover{background:#9B1E22;color:#FBFAF9;padding-left:28px}
+.svc:hover .svc-n,.svc:hover .svc-d{color:#FBFAF9}
+.svc .arr{transition:transform .35s ease}
+summary.svc::-webkit-details-marker{display:none}
+summary.svc:focus-visible{outline:2px solid #9B1E22;outline-offset:2px}
+details[open] > .svc{background:#9B1E22;color:#FBFAF9;padding-left:28px}
+details[open] > .svc .svc-n,details[open] > .svc .svc-d{color:#FBFAF9}
+details[open] > .svc .arr{transform:rotate(45deg)}
+@keyframes panelIn{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+details[open] > .svc-panel{animation:panelIn .5s cubic-bezier(.2,.75,.1,1) both}
+.card .ph{transition:transform .8s cubic-bezier(.2,.75,.1,1), filter .6s ease;filter:grayscale(1) contrast(1.1)}
+.card:hover .ph{transform:scale(1.04);filter:none}
+.card .more{transition:letter-spacing .35s ease}
+.card:hover .more{letter-spacing:.24em}
+.nav a{transition:color .2s ease}
+.nav a:hover{color:#9B1E22}
+@media (max-width: 960px){header nav{display:none !important}}
+@media (max-width: 640px){
+.hero-badge{width:96px !important;height:96px !important}
+.hero-badge svg{width:96px;height:96px}
+.hero-ctas{width:100%}
+.hero-ctas .btn{flex:1 1 100%;justify-content:center}
+.svc{grid-template-columns:36px minmax(0,1fr) 28px !important;gap:6px 14px !important;padding:24px 0 !important}
+.svc:hover{padding-left:12px !important}
+.svc .svc-d{grid-column:2 / 3;grid-row:2}
+.svc .arr{grid-column:3;grid-row:1;width:22px;height:22px}
+.phase{border-right:0 !important;border-bottom:1px solid rgba(251,250,249,.1);padding:24px 0 !important}
+.card{margin-top:0 !important}
+.svc-panel{padding:8px 0 36px !important}
+details[open] > .svc{padding-left:12px !important}
+.cta-btn{width:100%;justify-content:center;box-sizing:border-box}
+}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+</style>
+<style>html{scroll-behavior:smooth}</style>
+
+<style>.next{transition:background-color .35s ease,color .35s ease}.next:hover{background:#9B1E22;color:#FBFAF9}.next:hover p{color:#FBFAF9 !important}.next .arr{transition:transform .35s ease}.next:hover .arr{transform:translateX(8px)}</style>
+</head>
+<body>
+
+    <div style="font-family: Archivo, system-ui, sans-serif; color: #120F0E; background: #FBFAF9; width: 100%; overflow-x: clip">
+
+        <header class="nav" style="position: sticky; top: 0; z-index: 10; background: rgba(251,250,249,.86); backdrop-filter: blur(12px); border-bottom: 1px solid #E1DDDA">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 18px clamp(16px, 4vw, 48px); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+      <a href="../index.html#top" style="font-family: Anton, sans-serif; font-size: 30px; letter-spacing: .01em; text-decoration: none; color: #9B1E22">AKA LAB</a>
+      <nav style="display: flex; gap: clamp(14px, 2.4vw, 36px); flex-wrap: wrap; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase">
+        <a href="../index.html#approccio" style="text-decoration: none; color: #120F0E">Approccio</a>
+        <a href="../index.html#servizi" style="text-decoration: none; color: #120F0E">Servizi</a>
+        <a href="../index.html#portfolio" style="text-decoration: none; color: #120F0E">Portfolio</a>
+        <a href="../index.html#agenzia" style="text-decoration: none; color: #120F0E">Agenzia</a>
+      </nav>
+      <a class="btn" href="#contatti" style="background: #9B1E22; color: #FBFAF9; text-decoration: none; padding: 12px 20px; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Parliamo</a>
+    </div>
+  </header>
+
+      <section style="max-width: 1360px; margin: 0 auto; padding: clamp(40px, 6vw, 80px) clamp(16px, 4vw, 48px) clamp(48px, 6vw, 80px)">
+        <a href="../index.html#portfolio" style="font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #120F0E; text-decoration: none">← Tutti i progetti</a>
+        <p style="margin: 0 0 20px; font-size: 13px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #9B1E22; margin-top: 40px">Progetti · Cinema · Venezia</p>
+        <h1 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(54px, 10vw, 160px); line-height: .9; text-transform: uppercase">
+          <span class="ln"><span>Mostra del Cinema di Venezia</span></span>
+        </h1>
+        <div class="fade">
+          <p style="margin: 32px 0 28px; max-width: 720px; font-size: clamp(19px, 1.7vw, 24px); line-height: 1.5; color: #3B3733">Tre progetti sviluppati per l&#x27;edizione 2026, con partner diversi.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="border: 1px solid #120F0E; padding: 8px 14px; font-size: 13px; font-weight: 600">Direzione artistica</span><span style="border: 1px solid #120F0E; padding: 8px 14px; font-size: 13px; font-weight: 600">Talent &amp; event management</span><span style="border: 1px solid #120F0E; padding: 8px 14px; font-size: 13px; font-weight: 600">Partnership &amp; collab</span><span style="border: 1px solid #120F0E; padding: 8px 14px; font-size: 13px; font-weight: 600">Creator strategy</span></div>
+        </div>
+      </section>
+
+      <figure style="margin: 0 auto; max-width: 1360px; padding: 0 clamp(16px, 4vw, 48px)">
+        <div style="aspect-ratio: 21 / 9; background: repeating-linear-gradient(135deg, #E1DDDA 0 14px, #EAE7E5 14px 28px); display: flex; align-items: center; justify-content: center; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5C5650; text-align: center; padding: 16px; box-sizing: border-box">[ Foto principale: Immagini dei progetti a Venezia in arrivo ]</div>
+      </figure>
+
+      <div style="background: #120F0E; color: #FBFAF9; margin-top: clamp(64px, 9vw, 120px)"><section style="max-width: 1360px; margin: 0 auto; padding: clamp(64px, 9vw, 120px) clamp(16px, 4vw, 48px)">
+        <p style="margin: 0 0 20px; font-size: 13px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #E8605B">Risultati documentati</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); column-gap: 32px">
+          <div class="stat" style="padding: 28px 24px 28px 0; border-top: 1px solid rgba(251,250,249,.2)">
+            <p style="margin: 0; font-family: Anton, sans-serif; font-size: clamp(56px, 7vw, 112px); line-height: 1; color: #FBFAF9">37</p>
+            <p style="margin: 10px 0 0; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #A8A29A">Ospiti</p>
+          </div>
+          <div class="stat" style="padding: 28px 24px 28px 0; border-top: 1px solid rgba(251,250,249,.2)">
+            <p style="margin: 0; font-family: Anton, sans-serif; font-size: clamp(56px, 7vw, 112px); line-height: 1; color: #FBFAF9">29</p>
+            <p style="margin: 10px 0 0; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #A8A29A">Realtà partner</p>
+          </div>
+          <div class="stat" style="padding: 28px 24px 28px 0; border-top: 1px solid rgba(251,250,249,.2)">
+            <p style="margin: 0; font-family: Anton, sans-serif; font-size: clamp(56px, 7vw, 112px); line-height: 1; color: #FBFAF9">+400K</p>
+            <p style="margin: 10px 0 0; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #A8A29A">Interazioni</p>
+          </div>
+          <div class="stat" style="padding: 28px 24px 28px 0; border-top: 1px solid rgba(251,250,249,.2)">
+            <p style="margin: 0; font-family: Anton, sans-serif; font-size: clamp(56px, 7vw, 112px); line-height: 1; color: #FBFAF9">+3M</p>
+            <p style="margin: 10px 0 0; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #A8A29A">Reach complessiva</p>
+          </div>
+          <div class="stat" style="padding: 28px 24px 28px 0; border-top: 1px solid rgba(251,250,249,.2)">
+            <p style="margin: 0; font-family: Anton, sans-serif; font-size: clamp(56px, 7vw, 112px); line-height: 1; color: #FBFAF9">+14M</p>
+            <p style="margin: 10px 0 0; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #A8A29A">Visualizzazioni social</p>
+          </div>
+          <div class="stat" style="padding: 28px 24px 28px 0; border-top: 1px solid rgba(251,250,249,.2)">
+            <p style="margin: 0; font-family: Anton, sans-serif; font-size: clamp(56px, 7vw, 112px); line-height: 1; color: #FBFAF9">+500</p>
+            <p style="margin: 10px 0 0; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #A8A29A">Contenuti prodotti</p>
+          </div>
+        </div>
+        <p style="margin: 32px 0 0; font-size: 14px; line-height: 1.5; color: #A8A29A; max-width: 640px">Numeri riferiti complessivamente ai progetti AKA LAB alla Mostra 2026, come riportato nella presentazione.</p>
+      </section></div>
+
+      <section style="max-width: 1360px; margin: 0 auto; padding: clamp(64px, 9vw, 120px) clamp(16px, 4vw, 48px)">
+        <p style="margin: 0 0 20px; font-size: 13px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #9B1E22">Obiettivo</p>
+        <h2 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; text-transform: uppercase; line-height: .95; font-size: clamp(40px, 5.6vw, 84px); max-width: 1100px">Ideare e sviluppare progetti capaci di intercettare pubblici, linguaggi e opportunità differenti.</h2>
+      </section>
+    
+    
+      <div style="background: #9B1E22; color: #FBFAF9"><section style="max-width: 1360px; margin: 0 auto; padding: clamp(64px, 9vw, 120px) clamp(16px, 4vw, 48px)">
+        <h2 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; text-transform: uppercase; line-height: .95; font-size: clamp(44px, 6vw, 88px); margin-bottom: 40px">I progetti del 2026</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 20px">
+              <article style="background: #FBFAF9; color: #120F0E; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 12px">
+                <p style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #9B1E22">Nuovi linguaggi e pubblici</p>
+                <h3 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(30px, 3vw, 44px); text-transform: uppercase; line-height: 1">Venezia Cult</h3>
+                <p style="margin: 0; font-size: 14px; font-style: italic; color: #5C5650">in collaborazione con Comicon</p>
+                <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #3B3733">Cinema e cultura pop si incontrano in un palinsesto di talk, podcast ed eventi.</p>
+              </article>
+              <article style="background: #FBFAF9; color: #120F0E; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 12px">
+                <p style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #9B1E22">Eventi, interviste e feste</p>
+                <h3 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(30px, 3vw, 44px); text-transform: uppercase; line-height: 1">La Villa</h3>
+                <p style="margin: 0; font-size: 14px; font-style: italic; color: #5C5650">in collaborazione con Unifrance</p>
+                <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #3B3733">Punto d&#x27;incontro per personalità del cinema, giornalisti e professionisti, tra panel, junket ed eventi diurni e serali.</p>
+              </article>
+              <article style="background: #FBFAF9; color: #120F0E; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 12px">
+                <p style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #9B1E22">Format editoriale</p>
+                <h3 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(30px, 3vw, 44px); text-transform: uppercase; line-height: 1">Fuori Morning Show</h3>
+                <p style="margin: 0; font-size: 14px; font-style: italic; color: #5C5650">in collaborazione con La Biennale</p>
+                <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #3B3733">Un format d&#x27;intrattenimento che racconta il festival con un linguaggio adatto per un pubblico digitale.</p>
+              </article>
+        </div>
+      </section></div>
+
+      <section style="max-width: 1360px; margin: 0 auto; padding: clamp(64px, 9vw, 120px) clamp(16px, 4vw, 48px)">
+        <p style="margin: 0 0 20px; font-size: 13px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #9B1E22">Materiali</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 20px">
+              <figure style="margin: 0; aspect-ratio: 4 / 3; background: repeating-linear-gradient(135deg, #E1DDDA 0 14px, #EAE7E5 14px 28px); display: flex; align-items: flex-end; padding: 16px; box-sizing: border-box">
+                <figcaption style="font-size: 13px; color: #3B3733; background: #FBFAF9; padding: 6px 10px">[ Foto: Immagini dei progetti a Venezia in arrivo ]</figcaption>
+              </figure>
+        </div>
+        <p style="margin: 0 0 20px; font-size: 13px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #5C5650; margin-top: 64px">Servizi coinvolti</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px"><a class="btn" href="../index.html#content" style="text-decoration: none; color: #120F0E; border: 1px solid #120F0E; padding: 14px 18px; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase">Content, Social &amp; Creator →</a><a class="btn" href="../index.html#partnership" style="text-decoration: none; color: #120F0E; border: 1px solid #120F0E; padding: 14px 18px; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase">Partnership &amp; Business Development →</a><a class="btn" href="../index.html#event" style="text-decoration: none; color: #120F0E; border: 1px solid #120F0E; padding: 14px 18px; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase">Event &amp; Talent Management →</a></div>
+      </section>
+
+      <a class="next" href="pesaro-film-festival.html" style="display: block; text-decoration: none; color: #120F0E; border-top: 1px solid #120F0E; border-bottom: 1px solid #120F0E">
+        <div style="max-width: 1360px; margin: 0 auto; padding: clamp(48px, 7vw, 96px) clamp(16px, 4vw, 48px); display: flex; justify-content: space-between; align-items: center; gap: 24px">
+          <div>
+            <p style="margin: 0 0 20px; font-size: 13px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #5C5650">Progetto successivo</p>
+            <p style="margin: 0; font-family: Anton, sans-serif; font-size: clamp(40px, 7vw, 112px); line-height: .95; text-transform: uppercase">Pesaro Film Festival</p>
+          </div>
+          <svg class="arr" aria-hidden="true" width="56" height="56" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2" style="flex: none"><path d="M2 7h10M8 3l4 4-4 4"></path></svg>
+        </div>
+      </a>
+
+        <section id="contatti" style="background: #9B1E22; color: #FBFAF9">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(72px, 10vw, 140px) clamp(16px, 4vw, 48px)">
+      <p style="margin: 0 0 24px; font-family: Archivo, sans-serif; font-size: 12px; letter-spacing: .2em; text-transform: uppercase">Prossimo ciak</p>
+      <h2 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(56px, 10vw, 160px); line-height: .88; text-transform: uppercase">Costruiamo il<br>prossimo progetto<br>insieme.</h2>
+      <div style="margin-top: 48px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
+        <p style="margin: 0; font-size: 20px; line-height: 1.5; max-width: 480px">Un festival, un progetto speciale o una partnership: raccontaci da dove parti.</p>
+        <a class="btn cta-btn" href="mailto:francesco@aka-lab.it" style="background: #120F0E; color: #FBFAF9; text-decoration: none; padding: 22px 34px; font-size: 14px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; gap: 12px; align-items: center">Parliamo di un progetto
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"></path></svg></a>
+      </div>
+    </div>
+  </section>
+
+        <div style="background: #120F0E; color: #FBFAF9"><footer style="max-width: 1360px; margin: 0 auto; padding: 72px clamp(16px, 4vw, 48px) 40px">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 40px; padding-bottom: 56px; border-bottom: 1px solid rgba(251,250,249,.15)">
+      <div>
+        <p style="margin: 0 0 12px; font-family: Anton, sans-serif; font-size: 32px">AKA LAB</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #A8A29A">Festival strategy &amp; communication. Aiutiamo a costruire festival che vivono 365 giorni l'anno.</p>
+      </div>
+      <div style="font-size: 15px; line-height: 1.5">
+        <p style="margin: 0 0 4px; font-weight: 600">Francesco Marchetti</p>
+        <a href="mailto:francesco@aka-lab.it" style="color: #A8A29A">francesco@aka-lab.it</a>
+        <p style="margin: 18px 0 4px; font-weight: 600">Andrea Vailati</p>
+        <a href="mailto:andrea@aka-lab.it" style="color: #A8A29A">andrea@aka-lab.it</a>
+      </div>
+      <div style="font-size: 15px; line-height: 1.5">
+        <p style="margin: 0 0 4px; font-weight: 600">Alessia Marazzi</p>
+        <a href="mailto:alessia@aka-lab.it" style="color: #A8A29A">alessia@aka-lab.it</a>
+        <p style="margin: 18px 0 4px; font-weight: 600">Miele Pizzini Cavagna</p>
+        <a href="mailto:miele@aka-lab.it" style="color: #A8A29A">miele@aka-lab.it</a>
+      </div>
+      <nav class="nav" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+        <a href="../index.html#approccio" style="text-decoration: none">Approccio</a>
+        <a href="../index.html#servizi" style="text-decoration: none">Servizi</a>
+        <a href="../index.html#portfolio" style="text-decoration: none">Portfolio</a>
+        <a href="../index.html#agenzia" style="text-decoration: none">Agenzia</a>
+        <a href="#contatti" style="text-decoration: none">Contatti</a>
+      </nav>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding-top: 28px; font-family: Archivo, sans-serif; font-size: 12px; color: #A8A29A; letter-spacing: .1em">
+      <span>© 2026 AKA LAB · <a href="../admin.html" style="color: #A8A29A">Area riservata</a></span>
+      <span>00:00:00:00 — FINE</span>
+    </div>
+  </footer></div>
+    </div>
+</body>
+</html>

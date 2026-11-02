@@ -35,7 +35,13 @@ a{color:inherit}a:hover{color:inherit}
 .svc:hover{background:#9B1E22;color:#FBFAF9;padding-left:28px}
 .svc:hover .svc-n,.svc:hover .svc-d{color:#FBFAF9}
 .svc .arr{transition:transform .35s ease}
-.svc:hover .arr{transform:rotate(-45deg)}
+summary.svc::-webkit-details-marker{display:none}
+summary.svc:focus-visible{outline:2px solid #9B1E22;outline-offset:2px}
+details[open] > .svc{background:#9B1E22;color:#FBFAF9;padding-left:28px}
+details[open] > .svc .svc-n,details[open] > .svc .svc-d{color:#FBFAF9}
+details[open] > .svc .arr{transform:rotate(45deg)}
+@keyframes panelIn{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+details[open] > .svc-panel{animation:panelIn .5s cubic-bezier(.2,.75,.1,1) both}
 .card .ph{transition:transform .8s cubic-bezier(.2,.75,.1,1), filter .6s ease;filter:grayscale(1) contrast(1.1)}
 .card:hover .ph{transform:scale(1.04);filter:none}
 .card .more{transition:letter-spacing .35s ease}
@@ -54,6 +60,8 @@ a{color:inherit}a:hover{color:inherit}
 .svc .arr{grid-column:3;grid-row:1;width:22px;height:22px}
 .phase{border-right:0 !important;border-bottom:1px solid rgba(251,250,249,.1);padding:24px 0 !important}
 .card{margin-top:0 !important}
+.svc-panel{padding:8px 0 36px !important}
+details[open] > .svc{padding-left:12px !important}
 .cta-btn{width:100%;justify-content:center;box-sizing:border-box}
 }
 @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
@@ -172,33 +180,108 @@ a{color:inherit}a:hover{color:inherit}
           <p style="margin: 0 0 20px; font-family: Archivo, sans-serif; font-size: 12px; letter-spacing: .2em; color: #9B1E22; text-transform: uppercase">02 — Dalla strategia all'attivazione</p>
           <h2 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(48px, 7vw, 104px); line-height: .92; text-transform: uppercase">Come costruiamo<br>rilevanza</h2>
         </div>
-        <a href="#servizi" style="font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #120F0E">Tutti i servizi →</a>
+        <p style="margin: 0; font-size: 14px; color: #5C5650">Clicca un servizio per i dettagli</p>
       </div>
       <div style="border-top: 1px solid #120F0E">
-        <a class="svc" href="#servizi" style="display: grid; grid-template-columns: 72px minmax(0, 1.1fr) minmax(0, 1fr) 44px; gap: 24px; align-items: center; padding: 32px 0; border-bottom: 1px solid #120F0E; text-decoration: none; color: #120F0E">
-          <span class="svc-n" style="font-family: Archivo, sans-serif; font-size: 14px; color: #9B1E22">01</span>
-          <span style="font-family: Anton, sans-serif; font-size: clamp(28px, 3.4vw, 48px); text-transform: uppercase; line-height: 1">Strategy &amp; Marketing</span>
-          <span class="svc-d" style="font-size: 16px; line-height: 1.5; color: #5C5650">Posizionamento, audience strategy, campagne ADV/OOH, KPI e pianificazione.</span>
-          <svg class="arr" aria-hidden="true" width="28" height="28" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7h10M8 3l4 4-4 4"></path></svg>
-        </a>
-        <a class="svc" href="#servizi" style="display: grid; grid-template-columns: 72px minmax(0, 1.1fr) minmax(0, 1fr) 44px; gap: 24px; align-items: center; padding: 32px 0; border-bottom: 1px solid #120F0E; text-decoration: none; color: #120F0E">
-          <span class="svc-n" style="font-family: Archivo, sans-serif; font-size: 14px; color: #9B1E22">02</span>
-          <span style="font-family: Anton, sans-serif; font-size: clamp(28px, 3.4vw, 48px); text-transform: uppercase; line-height: 1">Content, Social &amp; Creator</span>
-          <span class="svc-d" style="font-size: 16px; line-height: 1.5; color: #5C5650">Piani editoriali, format, gestione social, creator strategy e contenuti live.</span>
-          <svg class="arr" aria-hidden="true" width="28" height="28" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7h10M8 3l4 4-4 4"></path></svg>
-        </a>
-        <a class="svc" href="#servizi" style="display: grid; grid-template-columns: 72px minmax(0, 1.1fr) minmax(0, 1fr) 44px; gap: 24px; align-items: center; padding: 32px 0; border-bottom: 1px solid #120F0E; text-decoration: none; color: #120F0E">
-          <span class="svc-n" style="font-family: Archivo, sans-serif; font-size: 14px; color: #9B1E22">03</span>
-          <span style="font-family: Anton, sans-serif; font-size: clamp(28px, 3.4vw, 48px); text-transform: uppercase; line-height: 1">Partnership &amp; Business Dev</span>
-          <span class="svc-d" style="font-size: 16px; line-height: 1.5; color: #5C5650">Media partnership, brand collaboration, stakeholder e relazioni industry.</span>
-          <svg class="arr" aria-hidden="true" width="28" height="28" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7h10M8 3l4 4-4 4"></path></svg>
-        </a>
-        <a class="svc" href="#servizi" style="display: grid; grid-template-columns: 72px minmax(0, 1.1fr) minmax(0, 1fr) 44px; gap: 24px; align-items: center; padding: 32px 0; border-bottom: 1px solid #120F0E; text-decoration: none; color: #120F0E">
-          <span class="svc-n" style="font-family: Archivo, sans-serif; font-size: 14px; color: #9B1E22">04</span>
-          <span style="font-family: Anton, sans-serif; font-size: clamp(28px, 3.4vw, 48px); text-transform: uppercase; line-height: 1">Event &amp; Talent Management</span>
-          <span class="svc-d" style="font-size: 16px; line-height: 1.5; color: #5C5650">Format live, talent e guest management, hospitality, attivazioni e presidio on-site.</span>
-          <svg class="arr" aria-hidden="true" width="28" height="28" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7h10M8 3l4 4-4 4"></path></svg>
-        </a>
+        <details id="strategy" class="svc-item" style="border-bottom: 1px solid #120F0E">
+          <summary class="svc" style="display: grid; grid-template-columns: 72px minmax(0, 1.1fr) minmax(0, 1fr) 44px; gap: 24px; align-items: center; padding: 32px 0; color: #120F0E; cursor: pointer; list-style: none">
+            <span class="svc-n" style="font-size: 14px; font-weight: 600; color: #9B1E22">01</span>
+            <span style="font-family: Anton, sans-serif; font-size: clamp(28px, 3.4vw, 48px); text-transform: uppercase; line-height: 1">Strategy &amp; Marketing</span>
+            <span class="svc-d" style="font-size: 16px; line-height: 1.5; color: #5C5650">Posizionamento, audience strategy, campagne ADV/OOH, KPI e pianificazione.</span>
+            <svg class="arr" aria-hidden="true" width="28" height="28" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 2v10M2 7h10"></path></svg>
+          </summary>
+          <div class="svc-panel" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(24px, 4vw, 64px); padding: 8px 0 48px 96px">
+            <div>
+              <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #5C5650">Cosa facciamo</p>
+              <ul style="margin: 0; padding: 0; list-style: none">
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">01.1</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Posizionamento</span></li>
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">01.2</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Audience strategy</span></li>
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">01.3</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Campagne ADV / OOH</span></li>
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">01.4</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">KPI</span></li>
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">01.5</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Pianificazione</span></li>
+              </ul>
+            </div>
+            <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 32px">
+              <p style="margin: 0; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.55; color: #3B3733">Posizionamento, audience strategy, campagne ADV/OOH, KPI e pianificazione.</p>
+              <a class="btn" href="#contatti" style="align-self: flex-start; background: #120F0E; color: #FBFAF9; text-decoration: none; padding: 16px 24px; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; gap: 12px; align-items: center">Parliamone
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"></path></svg></a>
+            </div>
+          </div>
+        </details>
+        <details id="content" class="svc-item" style="border-bottom: 1px solid #120F0E">
+          <summary class="svc" style="display: grid; grid-template-columns: 72px minmax(0, 1.1fr) minmax(0, 1fr) 44px; gap: 24px; align-items: center; padding: 32px 0; color: #120F0E; cursor: pointer; list-style: none">
+            <span class="svc-n" style="font-size: 14px; font-weight: 600; color: #9B1E22">02</span>
+            <span style="font-family: Anton, sans-serif; font-size: clamp(28px, 3.4vw, 48px); text-transform: uppercase; line-height: 1">Content, Social &amp; Creator</span>
+            <span class="svc-d" style="font-size: 16px; line-height: 1.5; color: #5C5650">Piani editoriali, format, gestione social, creator strategy e contenuti live.</span>
+            <svg class="arr" aria-hidden="true" width="28" height="28" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 2v10M2 7h10"></path></svg>
+          </summary>
+          <div class="svc-panel" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(24px, 4vw, 64px); padding: 8px 0 48px 96px">
+            <div>
+              <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #5C5650">Cosa facciamo</p>
+              <ul style="margin: 0; padding: 0; list-style: none">
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">02.1</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Piani editoriali</span></li>
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">02.2</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Sviluppo format</span></li>
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">02.3</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Gestione canali social</span></li>
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">02.4</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Creator strategy</span></li>
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">02.5</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Contenuti live</span></li>
+              </ul>
+            </div>
+            <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 32px">
+              <p style="margin: 0; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.55; color: #3B3733">Piani editoriali, format, gestione social, creator strategy e contenuti live.</p>
+              <a class="btn" href="#contatti" style="align-self: flex-start; background: #120F0E; color: #FBFAF9; text-decoration: none; padding: 16px 24px; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; gap: 12px; align-items: center">Parliamone
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"></path></svg></a>
+            </div>
+          </div>
+        </details>
+        <details id="partnership" class="svc-item" style="border-bottom: 1px solid #120F0E">
+          <summary class="svc" style="display: grid; grid-template-columns: 72px minmax(0, 1.1fr) minmax(0, 1fr) 44px; gap: 24px; align-items: center; padding: 32px 0; color: #120F0E; cursor: pointer; list-style: none">
+            <span class="svc-n" style="font-size: 14px; font-weight: 600; color: #9B1E22">03</span>
+            <span style="font-family: Anton, sans-serif; font-size: clamp(28px, 3.4vw, 48px); text-transform: uppercase; line-height: 1">Partnership &amp; Business Dev</span>
+            <span class="svc-d" style="font-size: 16px; line-height: 1.5; color: #5C5650">Media partnership, brand collaboration, stakeholder e relazioni industry.</span>
+            <svg class="arr" aria-hidden="true" width="28" height="28" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 2v10M2 7h10"></path></svg>
+          </summary>
+          <div class="svc-panel" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(24px, 4vw, 64px); padding: 8px 0 48px 96px">
+            <div>
+              <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #5C5650">Cosa facciamo</p>
+              <ul style="margin: 0; padding: 0; list-style: none">
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">03.1</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Media partnership</span></li>
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">03.2</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Brand collaboration</span></li>
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">03.3</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Relazioni con gli stakeholder</span></li>
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">03.4</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Relazioni industry</span></li>
+              </ul>
+            </div>
+            <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 32px">
+              <p style="margin: 0; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.55; color: #3B3733">Media partnership, brand collaboration, stakeholder e relazioni industry.</p>
+              <a class="btn" href="#contatti" style="align-self: flex-start; background: #120F0E; color: #FBFAF9; text-decoration: none; padding: 16px 24px; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; gap: 12px; align-items: center">Parliamone
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"></path></svg></a>
+            </div>
+          </div>
+        </details>
+        <details id="event" class="svc-item" style="border-bottom: 1px solid #120F0E">
+          <summary class="svc" style="display: grid; grid-template-columns: 72px minmax(0, 1.1fr) minmax(0, 1fr) 44px; gap: 24px; align-items: center; padding: 32px 0; color: #120F0E; cursor: pointer; list-style: none">
+            <span class="svc-n" style="font-size: 14px; font-weight: 600; color: #9B1E22">04</span>
+            <span style="font-family: Anton, sans-serif; font-size: clamp(28px, 3.4vw, 48px); text-transform: uppercase; line-height: 1">Event &amp; Talent Management</span>
+            <span class="svc-d" style="font-size: 16px; line-height: 1.5; color: #5C5650">Format live, talent e guest management, hospitality, attivazioni e presidio on-site.</span>
+            <svg class="arr" aria-hidden="true" width="28" height="28" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 2v10M2 7h10"></path></svg>
+          </summary>
+          <div class="svc-panel" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(24px, 4vw, 64px); padding: 8px 0 48px 96px">
+            <div>
+              <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #5C5650">Cosa facciamo</p>
+              <ul style="margin: 0; padding: 0; list-style: none">
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">04.1</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Format live</span></li>
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">04.2</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Talent e guest management</span></li>
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">04.3</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Hospitality</span></li>
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">04.4</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Attivazioni</span></li>
+              <li style="display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #E1DDDA"><span style="font-size: 12px; font-weight: 600; color: #9B1E22; min-width: 28px">04.5</span><span style="font-family: Anton, sans-serif; font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; line-height: 1.1">Presidio on-site</span></li>
+              </ul>
+            </div>
+            <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 32px">
+              <p style="margin: 0; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.55; color: #3B3733">Format live, talent e guest management, hospitality, attivazioni e presidio on-site.</p>
+              <a class="btn" href="#contatti" style="align-self: flex-start; background: #120F0E; color: #FBFAF9; text-decoration: none; padding: 16px 24px; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: inline-flex; gap: 12px; align-items: center">Parliamone
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11L11 3M5 3h6v6"></path></svg></a>
+            </div>
+          </div>
+        </details>
       </div>
     </div>
   </section>
@@ -213,7 +296,7 @@ a{color:inherit}a:hover{color:inherit}
       <p style="margin: 0; max-width: 380px; font-size: 17px; line-height: 1.55; color: #D9D3C8">Festival, pubblici e linguaggi diversi. Un lavoro su misura, dalla strategia all'attivazione.</p>
     </div>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: clamp(24px, 3vw, 40px)">
-      <a class="card" href="#portfolio" style="text-decoration: none; color: #FBFAF9; display: block">
+      <a class="card" href="progetti/italian-global-series-festival.html" style="text-decoration: none; color: #FBFAF9; display: block">
         <div style="overflow: hidden; aspect-ratio: 4 / 3; background: #1C1A18; position: relative">
           <div class="ph" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(135deg, #1C1A18 0 14px, #232120 14px 28px); font-family: Archivo, sans-serif; font-size: 12px; color: #A8A29A; letter-spacing: .12em; text-transform: uppercase">[ Foto: panel IGS sul palco ]</div>
           <span style="position: absolute; left: 16px; top: 16px; background: #9B1E22; color: #FBFAF9; font-family: Archivo, sans-serif; font-size: 11px; padding: 6px 10px; letter-spacing: .12em">FESTIVAL · ROMA</span>
@@ -226,7 +309,7 @@ a{color:inherit}a:hover{color:inherit}
           <span class="more" style="font-size: 12px; font-weight: 700; letter-spacing: .16em; white-space: nowrap; padding-top: 10px">SCOPRI →</span>
         </div>
       </a>
-      <a class="card" href="#portfolio" style="text-decoration: none; color: #FBFAF9; display: block; margin-top: clamp(0px, 6vw, 96px)">
+      <a class="card" href="progetti/comicon.html" style="text-decoration: none; color: #FBFAF9; display: block; margin-top: clamp(0px, 6vw, 96px)">
         <div style="overflow: hidden; aspect-ratio: 4 / 3; background: #1C1A18; position: relative">
           <div class="ph" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(135deg, #1C1A18 0 14px, #232120 14px 28px); font-family: Archivo, sans-serif; font-size: 12px; color: #A8A29A; letter-spacing: .12em; text-transform: uppercase">[ Foto: premiazione COMICON ]</div>
           <span style="position: absolute; left: 16px; top: 16px; background: #9B1E22; color: #FBFAF9; font-family: Archivo, sans-serif; font-size: 11px; padding: 6px 10px; letter-spacing: .12em">POP CULTURE · NAPOLI</span>
@@ -239,7 +322,7 @@ a{color:inherit}a:hover{color:inherit}
           <span class="more" style="font-size: 12px; font-weight: 700; letter-spacing: .16em; white-space: nowrap; padding-top: 10px">SCOPRI →</span>
         </div>
       </a>
-      <a class="card" href="#portfolio" style="text-decoration: none; color: #FBFAF9; display: block">
+      <a class="card" href="progetti/mostra-del-cinema-di-venezia.html" style="text-decoration: none; color: #FBFAF9; display: block">
         <div style="overflow: hidden; aspect-ratio: 4 / 3; background: #1C1A18; position: relative">
           <div class="ph" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(135deg, #1C1A18 0 14px, #232120 14px 28px); font-family: Archivo, sans-serif; font-size: 12px; color: #A8A29A; letter-spacing: .12em; text-transform: uppercase">[ Fotografia in arrivo ]</div>
           <span style="position: absolute; left: 16px; top: 16px; background: #9B1E22; color: #FBFAF9; font-family: Archivo, sans-serif; font-size: 11px; padding: 6px 10px; letter-spacing: .12em">CINEMA · VENEZIA</span>
@@ -252,7 +335,7 @@ a{color:inherit}a:hover{color:inherit}
           <span class="more" style="font-size: 12px; font-weight: 700; letter-spacing: .16em; white-space: nowrap; padding-top: 10px">SCOPRI →</span>
         </div>
       </a>
-      <a class="card" href="#portfolio" style="text-decoration: none; color: #FBFAF9; display: block; margin-top: clamp(0px, 6vw, 96px)">
+      <a class="card" href="progetti/pesaro-film-festival.html" style="text-decoration: none; color: #FBFAF9; display: block; margin-top: clamp(0px, 6vw, 96px)">
         <div style="overflow: hidden; aspect-ratio: 4 / 3; background: #1C1A18; position: relative">
           <div class="ph" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(135deg, #1C1A18 0 14px, #232120 14px 28px); font-family: Archivo, sans-serif; font-size: 12px; color: #A8A29A; letter-spacing: .12em; text-transform: uppercase">[ Fotografia in arrivo ]</div>
           <span style="position: absolute; left: 16px; top: 16px; background: #9B1E22; color: #FBFAF9; font-family: Archivo, sans-serif; font-size: 11px; padding: 6px 10px; letter-spacing: .12em">CINEMA · PESARO</span>
@@ -342,5 +425,9 @@ a{color:inherit}a:hover{color:inherit}
   </footer></div>
 </div>
 
+<script>
+(function(){function openFromHash(){var id=location.hash.slice(1);if(!id)return;var d=document.getElementById(id);if(d&&d.tagName==='DETAILS'){d.open=true;setTimeout(function(){d.scrollIntoView({block:'start'})},50)}}
+window.addEventListener('hashchange',openFromHash);openFromHash();})();
+</script>
 </body>
 </html>
