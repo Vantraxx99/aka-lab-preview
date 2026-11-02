@@ -97,8 +97,8 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--red);outline-off
 .logo{border:1px solid var(--line);background:#fff;padding:10px;display:flex;flex-direction:column;gap:8px}
 .logo .ph{height:60px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-family:Anton,sans-serif;font-size:15px;text-transform:uppercase;color:var(--muted);text-align:center;padding:4px}
 .logo input{min-height:36px;padding:6px 8px;border:1px solid var(--line);background:var(--paper);font-size:13px;width:100%}
-.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120%);background:var(--ink);color:var(--paper);padding:14px 20px;font-size:14px;transition:transform .3s ease;z-index:20;max-width:calc(100% - 32px)}
-.toast.on{transform:translateX(-50%) translateY(0)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(16px);opacity:0;visibility:hidden;background:var(--ink);color:var(--paper);padding:14px 20px;font-size:14px;transition:transform .3s ease,opacity .3s ease,visibility .3s;z-index:20;max-width:calc(100% - 32px)}
+.toast.on{transform:translateX(-50%) translateY(0);opacity:1;visibility:visible}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media (max-width: 860px){
 .app{flex-direction:column}
