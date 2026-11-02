@@ -3,150 +3,316 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AKA LAB — Admin (demo)</title>
-<meta name="description" content="Anteprima del pannello di amministrazione.">
+<title>AKA LAB — Pannello admin (demo)</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#FBFAF9}
-a{color:#9B1E22}a:hover{color:#120F0E}
-input,textarea{font:inherit}
-@media (max-width: 760px){
-.adm-side{max-width:100% !important;min-width:0 !important;flex-basis:100% !important;gap:20px !important}
-.adm-nav{max-width:100%}
-.adm-nav{flex-direction:row !important;flex-wrap:nowrap;overflow-x:auto;gap:6px !important;padding-bottom:4px}
-.adm-nav p{display:none}
-.adm-nav a{white-space:nowrap;border:1px solid rgba(251,250,249,.2)}
-.adm-user{display:none !important}
-.adm-list{max-width:none !important}
+:root{--red:#9B1E22;--ink:#120F0E;--paper:#FBFAF9;--line:#E1DDDA;--soft:#EAE7E5;--muted:#5C5650;--grey:#A8A29A;--ok:#2F6B3A;--warn:#B45309}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Archivo,system-ui,sans-serif}
+a{color:var(--red)}
+button,input,textarea,select{font:inherit;color:inherit}
+.app{display:flex;min-height:100vh}
+.side{width:264px;flex:none;background:var(--ink);color:var(--paper);padding:28px 18px;display:flex;flex-direction:column;gap:28px;position:sticky;top:0;height:100vh;overflow-y:auto}
+.brand{font-family:Anton,sans-serif;font-size:30px;margin:0;color:var(--paper)}
+.sub{margin:4px 0 0;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
+.side a.back{color:var(--paper);font-size:13px;display:inline-block;margin-top:10px}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav .grp{margin:14px 0 6px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
+.nav button{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:11px 14px;font-size:15px;min-height:22px}
+.nav button:hover{background:rgba(251,250,249,.08)}
+.nav button[aria-current="page"]{background:var(--red);font-weight:600}
+.nav button:focus-visible{outline:2px solid var(--paper);outline-offset:-2px}
+.nav .count{font-size:12px;color:var(--grey)}
+.nav button[aria-current="page"] .count{color:var(--paper)}
+.main{flex:1;min-width:0;padding:24px clamp(16px,3vw,40px) 80px}
+.demo{background:#FFF7E6;border:1px solid #F0D9A8;color:#6B4A0E;padding:10px 14px;font-size:13px;margin-bottom:20px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;padding-bottom:22px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.crumb{margin:0;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+h1{margin:6px 0 0;font-family:Anton,sans-serif;font-weight:400;font-size:44px;line-height:1;text-transform:uppercase}
+h2{margin:0;font-family:Anton,sans-serif;font-weight:400;font-size:26px;text-transform:uppercase;line-height:1.05}
+h3{margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.status{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;background:var(--ok)}
+.dot.warn{background:var(--warn)}
+.btn{min-height:44px;padding:0 18px;border:1px solid var(--ink);background:transparent;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink)}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.red{background:var(--red);border-color:var(--red);color:var(--paper)}
+.btn.red:hover{background:#7E181C}
+.btn.dark{background:var(--ink);color:var(--paper)}
+.btn.sm{min-height:36px;padding:0 12px;font-size:11px}
+.link{all:unset;cursor:pointer;color:var(--red);font-size:13px;font-weight:600;padding:8px 2px}
+.link:hover{text-decoration:underline}
+.link:focus-visible,.btn:focus-visible,.icon:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.icon{all:unset;cursor:pointer;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;color:var(--muted);flex:none}
+.icon:hover{background:var(--soft);color:var(--ink)}
+.icon.del:hover{color:var(--red)}
+.cols{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
+.list{flex:1 1 300px;max-width:380px;display:flex;flex-direction:column;gap:8px}
+.editor{flex:999 1 460px;min-width:0;background:#fff;border:1px solid var(--line);padding:clamp(18px,2.5vw,32px);display:flex;flex-direction:column;gap:22px}
+.item{display:flex;gap:10px;align-items:center;padding:10px;background:#fff;border:1px solid var(--line);cursor:pointer;text-align:left;width:100%}
+.item:hover{border-color:var(--grey)}
+.item[aria-current="true"]{border:2px solid var(--red);padding:9px}
+.thumb{width:56px;height:42px;flex:none;background:repeating-linear-gradient(135deg,var(--line) 0 6px,var(--soft) 6px 12px)}
+.item .t{flex:1;min-width:0}
+.item .t b{display:block;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item .t small{font-size:12px;font-weight:600}
+.pub{color:var(--ok)}.draft{color:var(--muted)}
+label.f{display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:600}
+.f input,.f textarea,.f select,.row input,.row textarea{min-height:44px;padding:10px 12px;border:1px solid var(--grey);background:var(--paper);font-size:15px;font-weight:400;width:100%}
+.f textarea,.row textarea{line-height:1.5;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--red);outline-offset:-1px;border-color:var(--red)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px}
+.hint{font-size:12px;font-weight:400;color:var(--muted)}
+.box{border:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:10px}
+.box-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.row{display:flex;gap:8px;align-items:flex-start}
+.row > .grow{flex:1;min-width:0}
+.row .w30{flex:0 0 30%;min-width:90px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tag{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--ink);padding:4px 4px 4px 12px;font-size:13px;font-weight:600}
+.tag .icon{width:28px;height:28px}
+.tag-add{display:flex;gap:6px}
+.tag-add input{min-height:36px;padding:6px 10px;border:1px solid var(--grey);background:var(--paper);font-size:14px;width:180px}
+.drop{border:2px dashed var(--grey);padding:22px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;color:var(--muted);font-size:14px;cursor:pointer;background:transparent;width:100%}
+.drop:hover{border-color:var(--red);color:var(--ink)}
+.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.photo{aspect-ratio:4/3;background:repeating-linear-gradient(135deg,var(--line) 0 8px,var(--soft) 8px 16px) center/cover;position:relative;display:flex;align-items:flex-end;padding:6px;font-size:11px;color:var(--ink)}
+.photo .icon{position:absolute;top:4px;right:4px;background:var(--paper);width:30px;height:30px}
+.photo span{background:var(--paper);padding:2px 6px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.checks{display:flex;flex-wrap:wrap;gap:10px}
+.check{display:flex;align-items:center;gap:8px;border:1px solid var(--line);padding:8px 12px;min-height:44px;font-size:14px;cursor:pointer}
+.check input{width:18px;height:18px;accent-color:var(--red)}
+.switch{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;min-height:44px;cursor:pointer}
+.switch input{width:20px;height:20px;accent-color:var(--red)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:18px;border-top:1px solid var(--line)}
+.block{border:1px solid var(--line);background:var(--paper)}
+.block-h{display:flex;align-items:center;gap:6px;padding:8px 8px 8px 14px;border-bottom:1px solid var(--line);background:#fff}
+.block-h b{flex:1;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.block-b{padding:14px;display:flex;flex-direction:column;gap:12px}
+.adders{display:flex;flex-wrap:wrap;gap:8px}
+.empty{padding:28px;text-align:center;color:var(--muted);border:1px dashed var(--grey)}
+.logos{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.logo{border:1px solid var(--line);background:#fff;padding:10px;display:flex;flex-direction:column;gap:8px}
+.logo .ph{height:60px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-family:Anton,sans-serif;font-size:15px;text-transform:uppercase;color:var(--muted);text-align:center;padding:4px}
+.logo input{min-height:36px;padding:6px 8px;border:1px solid var(--line);background:var(--paper);font-size:13px;width:100%}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120%);background:var(--ink);color:var(--paper);padding:14px 20px;font-size:14px;transition:transform .3s ease;z-index:20;max-width:calc(100% - 32px)}
+.toast.on{transform:translateX(-50%) translateY(0)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width: 860px){
+.app{flex-direction:column}
+.side{width:auto;height:auto;position:static;padding:18px 16px;gap:14px}
+.nav{flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:4px}
+.nav .grp{display:none}
+.nav button{white-space:nowrap;border:1px solid rgba(251,250,249,.2);padding:10px 14px}
+.nav .count{margin-left:8px}
+.list{max-width:none}
+h1{font-size:36px}
 }
 </style>
-<style>html{scroll-behavior:smooth}</style>
 </head>
 <body>
-<div style="font-family: Archivo, system-ui, sans-serif; color: #120F0E; background: #FBFAF9; display: flex; flex-wrap: wrap; min-height: 1000px">
-
-  <!-- SIDEBAR -->
-  <aside class="adm-side" style="flex: 1 1 240px; max-width: 280px; background: #120F0E; color: #FBFAF9; padding: 28px 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 32px">
+<div class="app">
+  <aside class="side">
     <div>
-      <p style="margin: 0; font-family: Anton, sans-serif; font-size: 30px; color: #FBFAF9">AKA LAB</p>
-      <p style="margin: 4px 0 0; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #A8A29A">Pannello admin · demo</p>
-      <a href="index.html" style="display: inline-block; margin-top: 12px; color: #FBFAF9; font-size: 13px">← Torna al sito</a>
+      <p class="brand">AKA LAB</p>
+      <p class="sub">Pannello admin · demo</p>
+      <a class="back" href="index.html">← Torna al sito</a>
     </div>
-    <nav class="adm-nav" aria-label="Sezioni del sito" style="display: flex; flex-direction: column; gap: 2px; font-size: 15px">
-      <p style="margin: 0 0 8px; font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #A8A29A">Contenuti</p>
-      <a href="#" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px; display: flex; justify-content: space-between">Home &amp; hero</a>
-      <a href="#" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px">Approccio 365</a>
-      <a href="#" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px">Servizi</a>
-      <a href="#" aria-current="page" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px; background: #9B1E22; display: flex; justify-content: space-between; font-weight: 600">Portfolio <span>4</span></a>
-      <a href="#" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px; display: flex; justify-content: space-between">Collaborazioni <span style="color: #A8A29A">32</span></a>
-      <a href="#" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px">Agenzia</a>
-      <a href="#" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px">Team &amp; contatti</a>
-      <p style="margin: 20px 0 8px; font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #A8A29A">Sito</p>
-      <a href="#" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px">Media</a>
-      <a href="#" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px">SEO &amp; impostazioni</a>
-    </nav>
-    <div class="adm-user" style="margin-top: auto; display: flex; align-items: center; gap: 12px; padding-top: 20px; border-top: 1px solid rgba(251,250,249,.15)">
-      <span style="width: 36px; height: 36px; border-radius: 50%; background: #9B1E22; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">A</span>
-      <div style="font-size: 13px"><p style="margin: 0; font-weight: 600">Alessia</p><p style="margin: 0; color: #A8A29A">Amministratrice</p></div>
-    </div>
+    <nav class="nav" aria-label="Sezioni" id="nav"></nav>
   </aside>
-
-  <!-- MAIN -->
-  <main style="flex: 999 1 560px; min-width: 0; padding: 28px clamp(16px, 3vw, 40px); box-sizing: border-box">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding-bottom: 24px; border-bottom: 1px solid #E1DDDA">
-      <div>
-        <p style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #9B1E22">Contenuti / Portfolio</p>
-        <h1 style="margin: 6px 0 0; font-family: Anton, sans-serif; font-weight: 400; font-size: 44px; text-transform: uppercase; line-height: 1">Portfolio</h1>
-      </div>
-      <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center">
-        <span style="font-size: 13px; color: #5C5650; display: flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #B45309; display: inline-block"></span>Modifiche non pubblicate</span>
-        <button type="button" style="min-height: 44px; padding: 0 20px; border: 1px solid #120F0E; background: transparent; color: #120F0E; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; cursor: pointer">Anteprima</button>
-        <button type="button" style="min-height: 44px; padding: 0 22px; border: 0; background: #9B1E22; color: #FBFAF9; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; cursor: pointer">Pubblica sul sito</button>
-      </div>
-    </div>
-
-    <div style="display: flex; flex-wrap: wrap; gap: 32px; margin-top: 28px; align-items: flex-start">
-
-      <!-- LIST -->
-      <section class="adm-list" aria-label="Progetti" style="flex: 1 1 300px; max-width: 380px">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px">
-          <p style="margin: 0; font-size: 13px; color: #5C5650">Trascina per riordinare</p>
-          <button type="button" style="min-height: 40px; padding: 0 14px; border: 0; background: #120F0E; color: #FBFAF9; font-size: 12px; font-weight: 700; letter-spacing: .1em; cursor: pointer">+ NUOVO</button>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 8px">
-          <div style="display: flex; gap: 12px; align-items: center; padding: 10px; background: #FFFFFF; border: 2px solid #9B1E22">
-            <svg aria-hidden="true" width="12" height="18" viewBox="0 0 12 18" fill="#A8A29A"><circle cx="3" cy="3" r="1.5"></circle><circle cx="9" cy="3" r="1.5"></circle><circle cx="3" cy="9" r="1.5"></circle><circle cx="9" cy="9" r="1.5"></circle><circle cx="3" cy="15" r="1.5"></circle><circle cx="9" cy="15" r="1.5"></circle></svg>
-            <span style="width: 64px; height: 48px; background: repeating-linear-gradient(135deg, #E1DDDA 0 6px, #EAE7E5 6px 12px); flex: none"></span>
-            <div style="min-width: 0; flex: 1"><p style="margin: 0; font-weight: 600; font-size: 15px">Italian Global Series Festival</p><p style="margin: 2px 0 0; font-size: 12px; color: #2F6B3A; font-weight: 600">● Pubblicato</p></div>
-          </div>
-          <div style="display: flex; gap: 12px; align-items: center; padding: 10px; background: #FFFFFF; border: 1px solid #E1DDDA">
-            <svg aria-hidden="true" width="12" height="18" viewBox="0 0 12 18" fill="#A8A29A"><circle cx="3" cy="3" r="1.5"></circle><circle cx="9" cy="3" r="1.5"></circle><circle cx="3" cy="9" r="1.5"></circle><circle cx="9" cy="9" r="1.5"></circle><circle cx="3" cy="15" r="1.5"></circle><circle cx="9" cy="15" r="1.5"></circle></svg>
-            <span style="width: 64px; height: 48px; background: repeating-linear-gradient(135deg, #E1DDDA 0 6px, #EAE7E5 6px 12px); flex: none"></span>
-            <div style="min-width: 0; flex: 1"><p style="margin: 0; font-weight: 600; font-size: 15px">COMICON</p><p style="margin: 2px 0 0; font-size: 12px; color: #2F6B3A; font-weight: 600">● Pubblicato</p></div>
-          </div>
-          <div style="display: flex; gap: 12px; align-items: center; padding: 10px; background: #FFFFFF; border: 1px solid #E1DDDA">
-            <svg aria-hidden="true" width="12" height="18" viewBox="0 0 12 18" fill="#A8A29A"><circle cx="3" cy="3" r="1.5"></circle><circle cx="9" cy="3" r="1.5"></circle><circle cx="3" cy="9" r="1.5"></circle><circle cx="9" cy="9" r="1.5"></circle><circle cx="3" cy="15" r="1.5"></circle><circle cx="9" cy="15" r="1.5"></circle></svg>
-            <span style="width: 64px; height: 48px; background: repeating-linear-gradient(135deg, #E1DDDA 0 6px, #EAE7E5 6px 12px); flex: none"></span>
-            <div style="min-width: 0; flex: 1"><p style="margin: 0; font-weight: 600; font-size: 15px">Festival del Cinema di Venezia</p><p style="margin: 2px 0 0; font-size: 12px; color: #5C5650; font-weight: 600">○ Bozza — manca la foto</p></div>
-          </div>
-          <div style="display: flex; gap: 12px; align-items: center; padding: 10px; background: #FFFFFF; border: 1px solid #E1DDDA">
-            <svg aria-hidden="true" width="12" height="18" viewBox="0 0 12 18" fill="#A8A29A"><circle cx="3" cy="3" r="1.5"></circle><circle cx="9" cy="3" r="1.5"></circle><circle cx="3" cy="9" r="1.5"></circle><circle cx="9" cy="9" r="1.5"></circle><circle cx="3" cy="15" r="1.5"></circle><circle cx="9" cy="15" r="1.5"></circle></svg>
-            <span style="width: 64px; height: 48px; background: repeating-linear-gradient(135deg, #E1DDDA 0 6px, #EAE7E5 6px 12px); flex: none"></span>
-            <div style="min-width: 0; flex: 1"><p style="margin: 0; font-weight: 600; font-size: 15px">Pesaro Film Fest</p><p style="margin: 2px 0 0; font-size: 12px; color: #5C5650; font-weight: 600">○ Bozza — manca la foto</p></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- EDITOR -->
-      <section aria-label="Modifica progetto" style="flex: 999 1 420px; min-width: 0; background: #FFFFFF; border: 1px solid #E1DDDA; padding: clamp(20px, 2.5vw, 32px); box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
-        <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
-          <h2 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: 28px; text-transform: uppercase">Italian Global Series Festival</h2>
-          <label style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; min-height: 44px">
-            <input type="checkbox" checked style="width: 20px; height: 20px; accent-color: #9B1E22">Visibile sul sito
-          </label>
-        </div>
-
-        <div>
-          <p style="margin: 0 0 8px; font-size: 13px; font-weight: 600">Foto di copertina</p>
-          <div style="display: flex; gap: 16px; flex-wrap: wrap">
-            <div style="flex: 1 1 260px; aspect-ratio: 16 / 9; background: repeating-linear-gradient(135deg, #E1DDDA 0 10px, #EAE7E5 10px 20px); display: flex; align-items: flex-end; justify-content: space-between; padding: 12px; box-sizing: border-box; font-size: 12px; color: #3B3733">
-              <span>igs-evento.jpg · 1.2 MB</span>
-              <button type="button" style="min-height: 36px; padding: 0 12px; border: 0; background: #120F0E; color: #FBFAF9; font-size: 12px; font-weight: 600; cursor: pointer">Sostituisci</button>
-            </div>
-            <div style="flex: 1 1 200px; border: 2px dashed #A8A29A; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 20px; text-align: center; color: #5C5650; font-size: 14px">
-              <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9B1E22" stroke-width="1.6"><path d="M12 16V4M7 9l5-5 5 5M4 16v4h16v-4"></path></svg>
-              <span><strong style="color: #120F0E">Trascina qui le foto</strong><br>per la galleria del progetto</span>
-            </div>
-          </div>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px">
-          <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 600">Titolo
-            <input type="text" value="Italian Global Series Festival" style="min-height: 44px; padding: 0 14px; border: 1px solid #A8A29A; background: #FBFAF9; font-size: 15px; font-weight: 400">
-          </label>
-          <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 600">Etichetta sulla foto
-            <input type="text" value="Festival · Roma" style="min-height: 44px; padding: 0 14px; border: 1px solid #A8A29A; background: #FBFAF9; font-size: 15px; font-weight: 400">
-          </label>
-        </div>
-
-        <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 600">Frase breve (anteprima in home)
-          <input type="text" value="Valorizzare il potenziale del festival e amplificarne la visibilità." style="min-height: 44px; padding: 0 14px; border: 1px solid #A8A29A; background: #FBFAF9; font-size: 15px; font-weight: 400">
-        </label>
-
-        <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 600">Racconto del progetto
-          <textarea rows="5" style="padding: 12px 14px; border: 1px solid #A8A29A; background: #FBFAF9; font-size: 15px; font-weight: 400; line-height: 1.55; resize: vertical">[Testo completo della pagina progetto: obiettivi, cosa ha fatto AKA LAB, risultati.]</textarea>
-        </label>
-
-        <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid #E1DDDA">
-          <button type="button" style="min-height: 44px; padding: 0 4px; border: 0; background: transparent; color: #9B1E22; font-size: 13px; font-weight: 600; cursor: pointer">Elimina progetto</button>
-          <button type="button" style="min-height: 44px; padding: 0 24px; border: 0; background: #120F0E; color: #FBFAF9; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; cursor: pointer">Salva bozza</button>
-        </div>
-      </section>
-    </div>
-  </main>
+  <main class="main" id="main" tabindex="-1"></main>
 </div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<script>
+(function(){
+'use strict';
+var KEY='akalab-admin-demo-v1';
+var SERVIZI=[
+ {id:'strategy',titolo:'Strategy & Marketing',desc:'Posizionamento, audience strategy, campagne ADV/OOH, KPI e pianificazione.',voci:['Posizionamento','Audience strategy','Campagne ADV / OOH','KPI','Pianificazione']},
+ {id:'content',titolo:'Content, Social & Creator',desc:'Piani editoriali, format, gestione social, creator strategy e contenuti live.',voci:['Piani editoriali','Sviluppo format','Gestione canali social','Creator strategy','Contenuti live']},
+ {id:'partnership',titolo:'Partnership & Business Development',desc:'Media partnership, brand collaboration, stakeholder e relazioni industry.',voci:['Media partnership','Brand collaboration','Relazioni con gli stakeholder','Relazioni industry']},
+ {id:'event',titolo:'Event & Talent Management',desc:'Format live, talent e guest management, hospitality, attivazioni e presidio on-site.',voci:['Format live','Talent e guest management','Hospitality','Attivazioni','Presidio on-site']}
+];
+var COLLAB=['Italian Global Series Festival','Alice nella Città','Giffoni Innovation Hub','Lux Vide','ArteSettima','Vision Distribution','FITRI','X Factor','ISSF','Rai Cinema','Lucky Red','Fremantle','COMICON','TFF','Asmodee','Minimum Fax','Movieplayer.it','PiperFilm','RCS Academy Business School','Sole 24 Ore Business School','INFN','Ministero degli Affari Esteri','24 Frame Future Film Fest','Ministero della Cultura','Cinecittà','Hume comunicazione','Umbria Film Commission','Brand On','Marilab','Trieste Science+Fiction Festival'];
+var TEAM=[{nome:'Francesco Marchetti',ruolo:'Founder',email:'francesco@aka-lab.it'},{nome:'Andrea Vailati',ruolo:'Founder',email:'andrea@aka-lab.it'},{nome:'Alessia Marazzi',ruolo:'',email:'alessia@aka-lab.it'},{nome:'Miele Pizzini Cavagna',ruolo:'',email:'miele@aka-lab.it'}];
+var HOME={eyebrow:'Festival Strategy & Communication',titolo1:'Il festival vive',titolo2:'oltre',titolo3:"l'evento.",sottotitolo:"Aiutiamo a costruire festival che vivono 365 giorni l'anno, attraverso strategia, comunicazione, contenuti e relazioni.",cta1:'Contattaci',cta2:'Il nostro approccio',
+ fasi:[{nome:'Pre',testo:'Posizionamento, teasing e costruzione relazionale.'},{nome:'Build-up',testo:'Programma, ospiti, partnership e community.'},{nome:'Live',testo:'Coverage, creator, format, talent ed experience.'},{nome:'Post',testo:"Memoria, risultati, contenuti e sviluppo dell'edizione successiva."}]};
+var PAGINE=[{id:'home',titolo:'Home',slug:'/',sistema:true,menu:true,blocchi:[]},{id:'servizi',titolo:'Servizi',slug:'/servizi',sistema:true,menu:true,blocchi:[]},{id:'progetti',titolo:'Portfolio',slug:'/progetti',sistema:true,menu:true,blocchi:[]},{id:'agenzia',titolo:'Agenzia',slug:'/agenzia',sistema:true,menu:true,blocchi:[]},{id:'contatti',titolo:'Contatti',slug:'/contatti',sistema:true,menu:true,blocchi:[]}];
+var SEO={titolo:'AKA LAB — Festival Strategy & Communication',descrizione:"Aiutiamo a costruire festival che vivono 365 giorni l'anno.",instagram:'',linkedin:''};
+var BLOCKS={titolo:'Titolo grande',testo:'Testo',immagine:'Immagine',numeri:'Numeri',elenco:'Elenco',cta:'Call to action'};
+
+var S=null, view={sec:'portfolio',sel:null,page:null}, dirty=false;
+function save(){dirty=true;try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}renderTopStatus()}
+function load(cb){
+  var saved=null;try{saved=JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){}
+  if(saved&&saved.progetti){S=saved;return cb()}
+  fetch('content/progetti.json').then(function(r){return r.json()}).catch(function(){return []}).then(function(prog){
+    prog.forEach(function(p){p.visibile=true;p.foto=p.materiali.map(function(m){return {nome:m}})});
+    S={progetti:prog,servizi:SERVIZI,collab:COLLAB.map(function(n){return {nome:n}}),team:TEAM,home:HOME,pagine:PAGINE,seo:SEO};cb();
+  });
+}
+function esc(v){return String(v==null?'':v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function uid(t){return (t||'nuovo').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'pagina'}
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('on')},2600)}
+var IC={
+ del:'<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 4h10M6 4V2.5h4V4M4.5 4l.7 9.5h5.6l.7-9.5"/></svg>',
+ up:'<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4"/></svg>',
+ down:'<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg>',
+ x:'<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 3l6 6M9 3l-6 6"/></svg>',
+ up2:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9B1E22" stroke-width="1.6" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 16v4h16v-4"/></svg>'
+};
+function delBtn(act,args,label){return '<button type="button" class="icon del" data-a="'+act+'" '+args+' aria-label="'+esc(label)+'">'+IC.del+'</button>'}
+function moveBtns(act,args,label){return '<button type="button" class="icon" data-a="'+act+'" data-dir="-1" '+args+' aria-label="Sposta su '+esc(label)+'">'+IC.up+'</button><button type="button" class="icon" data-a="'+act+'" data-dir="1" '+args+' aria-label="Sposta giù '+esc(label)+'">'+IC.down+'</button>'}
+function field(label,path,val,opts){opts=opts||{};var id='f-'+path.replace(/\W/g,'-');
+  var inp=opts.area?'<textarea id="'+id+'" rows="'+(opts.rows||3)+'" data-bind="'+path+'">'+esc(val)+'</textarea>':'<input id="'+id+'" type="'+(opts.type||'text')+'" data-bind="'+path+'" value="'+esc(val)+'">';
+  return '<label class="f" for="'+id+'">'+esc(label)+(opts.hint?' <span class="hint">'+esc(opts.hint)+'</span>':'')+inp+'</label>'}
+function tags(list,path,label){
+  return '<div class="box"><h3>'+esc(label)+'</h3><div class="tags">'+list.map(function(t,i){return '<span class="tag">'+esc(t)+'<button type="button" class="icon" data-a="rm" data-path="'+path+'" data-i="'+i+'" aria-label="Rimuovi '+esc(t)+'">'+IC.x+'</button></span>'}).join('')+
+  '<form class="tag-add" data-a="addtag" data-path="'+path+'"><label class="sr" for="t-'+path+'">Nuova voce</label><input id="t-'+path+'" placeholder="Aggiungi…"><button class="btn sm" type="submit">+</button></form></div></div>'}
+function get(path){return path.split('.').reduce(function(o,k){return o==null?o:o[k]},S)}
+function set(path,v){var ks=path.split('.'),last=ks.pop(),o=get(ks.join('.'));o[last]=v}
+function move(arr,i,d){var j=i+d;if(j<0||j>=arr.length)return;var t=arr[i];arr[i]=arr[j];arr[j]=t}
+
+/* ---------- NAV ---------- */
+var SECS=[['grp','Contenuti'],['pagine','Pagine'],['home','Home'],['servizi','Servizi'],['portfolio','Portfolio'],['collab','Collaborazioni'],['team','Team & contatti'],['grp','Sito'],['impostazioni','SEO & impostazioni']];
+function renderNav(){
+  var counts={pagine:S.pagine.length,servizi:S.servizi.length,portfolio:S.progetti.length,collab:S.collab.length,team:S.team.length};
+  document.getElementById('nav').innerHTML=SECS.map(function(s){
+    if(s[0]==='grp')return '<p class="grp">'+s[1]+'</p>';
+    return '<button type="button" data-nav="'+s[0]+'"'+(view.sec===s[0]?' aria-current="page"':'')+'>'+s[1]+(counts[s[0]]!=null?'<span class="count">'+counts[s[0]]+'</span>':'')+'</button>'}).join('');
+}
+function top(crumb,title,extra){
+  return '<div class="demo" role="note"><b>Versione dimostrativa.</b> Puoi aggiungere, modificare ed eliminare tutto: le modifiche restano solo in questo browser. <button type="button" class="link" data-a="reset">Ripristina i contenuti originali</button></div>'+
+  '<div class="top"><div><p class="crumb">'+esc(crumb)+'</p><h1>'+esc(title)+'</h1></div><div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><span class="status" id="status"></span>'+(extra||'')+'<a class="btn" href="index.html" target="_blank" rel="noopener">Anteprima</a><button type="button" class="btn red" data-a="publish">Pubblica sul sito</button></div></div>'}
+function renderTopStatus(){var el=document.getElementById('status');if(el)el.innerHTML=dirty?'<span class="dot warn"></span>Modifiche non pubblicate':'<span class="dot"></span>Tutto pubblicato'}
+
+/* ---------- PORTFOLIO ---------- */
+function vPortfolio(){
+  var P=S.progetti; if(view.sel==null||!P[view.sel])view.sel=P.length?0:null;
+  var list='<div class="list"><div class="box-h" style="margin-bottom:4px"><span class="hint">Ordina con le frecce: è l\'ordine del sito</span><button type="button" class="btn sm dark" data-a="addproj">+ Nuovo progetto</button></div>'+
+   (P.length?P.map(function(p,i){return '<div class="row" style="align-items:center"><button type="button" class="item" data-a="selproj" data-i="'+i+'"'+(i===view.sel?' aria-current="true"':'')+'><span class="thumb"></span><span class="t"><b>'+esc(p.titolo||'Senza titolo')+'</b><small class="'+(p.visibile?'pub':'draft')+'">'+(p.visibile?'● Pubblicato':'○ Bozza')+'</small></span></button>'+moveBtns('mvproj','data-i="'+i+'"',p.titolo)+'</div>'}).join(''):'<p class="empty">Nessun progetto. Creane uno.</p>')+'</div>';
+  var ed='';
+  if(view.sel!=null){var i=view.sel,p=P[i],b='progetti.'+i;
+    ed='<section class="editor" aria-label="Modifica progetto">'+
+    '<div class="box-h"><h2>'+esc(p.titolo||'Nuovo progetto')+'</h2><label class="switch"><input type="checkbox" data-bindc="'+b+'.visibile"'+(p.visibile?' checked':'')+'>Visibile sul sito</label></div>'+
+    '<div class="grid2">'+field('Titolo',b+'.titolo',p.titolo)+field('Etichetta sulla foto',b+'.etichetta',p.etichetta)+'</div>'+
+    field('Indirizzo della pagina',b+'.slug',p.slug,{hint:'aka-lab.it/progetti/…'})+
+    field('Sottotitolo',b+'.sottotitolo',p.sottotitolo,{area:true,rows:2})+
+    '<div class="box"><h3>Foto</h3><div class="photos">'+p.foto.map(function(f,k){return '<div class="photo" style="'+(f.url?'background-image:url('+esc(f.url)+')':'')+'">'+(k===0?'<span style="position:absolute;top:6px;left:6px">Copertina</span>':'')+'<button type="button" class="icon del" data-a="rm" data-path="'+b+'.foto" data-i="'+k+'" aria-label="Elimina foto">'+IC.del+'</button><span>'+esc(f.nome)+'</span></div>'}).join('')+'</div>'+
+      '<label class="drop">'+IC.up2+'<b style="color:#120F0E">Carica foto</b><span>La prima è la copertina</span><input type="file" accept="image/*" multiple class="sr" data-a="upload" data-path="'+b+'.foto"></label></div>'+
+    tags(p.discipline,b+'.discipline','Discipline (etichette sotto il titolo)')+
+    '<div class="box"><div class="box-h"><h3>Risultati documentati</h3><button type="button" class="btn sm" data-a="additem" data-path="'+b+'.risultati" data-tpl="risultato">+ Numero</button></div>'+
+      p.risultati.map(function(r,k){return '<div class="row"><input class="w30" aria-label="Valore" data-bind="'+b+'.risultati.'+k+'.valore" value="'+esc(r.valore)+'" placeholder="+2.5M"><input class="grow" aria-label="Descrizione" data-bind="'+b+'.risultati.'+k+'.label" value="'+esc(r.label)+'" placeholder="Visualizzazioni">'+delBtn('rm','data-path="'+b+'.risultati" data-i="'+k+'"','Elimina numero')+'</div>'}).join('')+
+      field('Nota sotto i numeri',b+'.nota',p.nota,{area:true,rows:2})+'</div>'+
+    field('Obiettivo',b+'.obiettivo',p.obiettivo,{area:true,rows:2})+
+    '<div class="box"><div class="box-h"><h3>Strategia e attività</h3><button type="button" class="btn sm" data-a="additem" data-path="'+b+'.strategia" data-tpl="step">+ Punto</button></div>'+
+      (p.strategia.length?p.strategia.map(function(s,k){return '<div class="row"><span style="font-weight:600;color:#9B1E22;padding-top:12px;min-width:26px">0'+(k+1)+'</span><div class="grow" style="display:flex;flex-direction:column;gap:6px"><input aria-label="Titolo punto" data-bind="'+b+'.strategia.'+k+'.titolo" value="'+esc(s.titolo)+'"><textarea rows="2" aria-label="Testo punto" data-bind="'+b+'.strategia.'+k+'.testo">'+esc(s.testo)+'</textarea></div>'+moveBtns('mv','data-path="'+b+'.strategia" data-i="'+k+'"','punto')+delBtn('rm','data-path="'+b+'.strategia" data-i="'+k+'"','Elimina punto')+'</div>'}).join(''):'<p class="hint">Nessun punto: la sezione non appare sul sito.</p>')+'</div>'+
+    '<div class="box"><div class="box-h"><h3>Iniziative / progetti speciali</h3><button type="button" class="btn sm" data-a="additem" data-path="'+b+'.iniziative" data-tpl="iniziativa">+ Iniziativa</button></div>'+
+      field('Titolo della sezione',b+'.iniziative_titolo',p.iniziative_titolo)+
+      p.iniziative.map(function(x,k){var q=b+'.iniziative.'+k;return '<div class="block"><div class="block-h"><b>'+esc(x.titolo||'Iniziativa')+'</b>'+moveBtns('mv','data-path="'+b+'.iniziative" data-i="'+k+'"','iniziativa')+delBtn('rm','data-path="'+b+'.iniziative" data-i="'+k+'"','Elimina iniziativa')+'</div><div class="block-b"><div class="grid2">'+field('Categoria',q+'.kicker',x.kicker)+field('Titolo',q+'.titolo',x.titolo)+'</div>'+field('Partner',q+'.partner',x.partner,{hint:'facoltativo'})+field('Descrizione',q+'.testo',x.testo,{area:true,rows:2})+'</div></div>'}).join('')+'</div>'+
+    '<div class="box"><h3>Servizi coinvolti</h3><div class="checks">'+S.servizi.map(function(s){return '<label class="check"><input type="checkbox" data-a="togserv" data-i="'+i+'" value="'+s.id+'"'+(p.servizi.indexOf(s.id)>-1?' checked':'')+'>'+esc(s.titolo)+'</label>'}).join('')+'</div></div>'+
+    '<label class="f" for="nx">Progetto successivo<select id="nx" data-bind="'+b+'.successivo">'+P.map(function(o){return '<option value="'+esc(o.slug)+'"'+(o.slug===p.successivo?' selected':'')+'>'+esc(o.titolo)+'</option>'}).join('')+'</select></label>'+
+    '<div class="foot"><button type="button" class="link" data-a="delproj" data-i="'+i+'">Elimina progetto</button><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="progetti/'+esc(p.slug)+'.html" target="_blank" rel="noopener">Vedi pagina</a><button type="button" class="btn dark" data-a="savedraft">Salva</button></div></div>'+
+    '</section>';}
+  return top('Contenuti / Portfolio','Portfolio')+'<div class="cols">'+list+ed+'</div>';
+}
+/* ---------- SERVIZI ---------- */
+function vServizi(){
+  return top('Contenuti / Servizi','Servizi')+'<p class="hint" style="margin:-8px 0 20px">Ogni servizio è una tendina sul sito: titolo e descrizione si vedono sempre, le voci si aprono al clic.</p><div style="display:flex;flex-direction:column;gap:14px;max-width:980px">'+
+  S.servizi.map(function(s,i){var b='servizi.'+i;return '<div class="block"><div class="block-h"><b>0'+(i+1)+' · '+esc(s.titolo||'Nuovo servizio')+'</b>'+moveBtns('mv','data-path="servizi" data-i="'+i+'"','servizio')+delBtn('rmconf','data-path="servizi" data-i="'+i+'"','Elimina servizio')+'</div><div class="block-b">'+field('Titolo',b+'.titolo',s.titolo)+field('Descrizione breve',b+'.desc',s.desc,{area:true,rows:2})+tags(s.voci,b+'.voci','Cosa facciamo (voci della tendina)')+'</div></div>'}).join('')+
+  '<button type="button" class="btn dark" style="align-self:flex-start" data-a="additem" data-path="servizi" data-tpl="servizio">+ Aggiungi servizio</button></div>';
+}
+/* ---------- HOME ---------- */
+function vHome(){var h=S.home;
+  return top('Contenuti / Home','Home')+'<div style="display:flex;flex-direction:column;gap:20px;max-width:980px">'+
+  '<div class="box"><h3>Hero</h3>'+field('Etichetta sopra il titolo','home.eyebrow',h.eyebrow)+'<div class="grid2">'+field('Titolo — riga 1','home.titolo1',h.titolo1)+field('Riga 2 (in rosso)','home.titolo2',h.titolo2)+field('Riga 3','home.titolo3',h.titolo3)+'</div>'+field('Sottotitolo','home.sottotitolo',h.sottotitolo,{area:true,rows:3})+'<div class="grid2">'+field('Pulsante principale','home.cta1',h.cta1)+field('Pulsante secondario','home.cta2',h.cta2)+'</div></div>'+
+  '<div class="box"><div class="box-h"><h3>Le fasi del festival (365)</h3><button type="button" class="btn sm" data-a="additem" data-path="home.fasi" data-tpl="fase">+ Fase</button></div>'+h.fasi.map(function(f,k){return '<div class="row"><input class="w30" aria-label="Nome fase" data-bind="home.fasi.'+k+'.nome" value="'+esc(f.nome)+'"><textarea class="grow" rows="2" aria-label="Descrizione fase" data-bind="home.fasi.'+k+'.testo">'+esc(f.testo)+'</textarea>'+moveBtns('mv','data-path="home.fasi" data-i="'+k+'"','fase')+delBtn('rm','data-path="home.fasi" data-i="'+k+'"','Elimina fase')+'</div>'}).join('')+'</div>'+
+  '<div class="box"><h3>Ordine delle sezioni della home</h3><p class="hint" style="margin:0">Hero · Collaborazioni · 365 · Servizi · Portfolio · Perché AKA LAB · Contatti</p></div></div>';
+}
+/* ---------- PAGINE ---------- */
+function vPagine(){
+  if(view.page!=null&&S.pagine[view.page])return vPagina(view.page);
+  return top('Contenuti / Pagine','Pagine','<button type="button" class="btn dark" data-a="newpage">+ Nuova pagina</button>')+
+  '<div style="display:flex;flex-direction:column;gap:8px;max-width:980px">'+S.pagine.map(function(p,i){return '<div class="item" style="cursor:default"><span class="t"><b>'+esc(p.titolo)+'</b><small class="hint">'+esc(p.slug)+(p.sistema?' · pagina principale':' · '+p.blocchi.length+' blocchi')+'</small></span><label class="switch" style="font-size:13px"><input type="checkbox" data-bindc="pagine.'+i+'.menu"'+(p.menu?' checked':'')+'>Nel menu</label>'+(p.sistema?'<span class="hint" style="padding:0 10px">si modifica dalla sua sezione</span>':'<button type="button" class="btn sm" data-a="editpage" data-i="'+i+'">Modifica</button>'+delBtn('rmconf','data-path="pagine" data-i="'+i+'"','Elimina pagina'))+'</div>'}).join('')+'</div>';
+}
+function vPagina(i){var p=S.pagine[i],b='pagine.'+i;
+  return top('Pagine / '+p.titolo,p.titolo,'<button type="button" class="btn" data-a="backpages">← Tutte le pagine</button>')+
+  '<div style="display:flex;flex-direction:column;gap:16px;max-width:980px"><div class="grid2">'+field('Titolo della pagina',b+'.titolo',p.titolo)+field('Indirizzo',b+'.slug',p.slug,{hint:'es. /lavora-con-noi'})+'</div>'+
+  '<h3 style="margin-top:8px">Contenuto della pagina</h3>'+
+  (p.blocchi.length?p.blocchi.map(function(bl,k){var q=b+'.blocchi.'+k;return '<div class="block"><div class="block-h"><b>'+esc(BLOCKS[bl.tipo])+'</b>'+moveBtns('mv','data-path="'+b+'.blocchi" data-i="'+k+'"','blocco')+delBtn('rm','data-path="'+b+'.blocchi" data-i="'+k+'"','Elimina blocco')+'</div><div class="block-b">'+blockFields(bl,q)+'</div></div>'}).join(''):'<p class="empty">Pagina vuota. Aggiungi il primo blocco qui sotto.</p>')+
+  '<div class="box"><h3>Aggiungi un blocco</h3><div class="adders">'+Object.keys(BLOCKS).map(function(t){return '<button type="button" class="btn sm" data-a="addblock" data-i="'+i+'" data-t="'+t+'">+ '+BLOCKS[t]+'</button>'}).join('')+'</div></div></div>';
+}
+function blockFields(bl,q){
+  if(bl.tipo==='titolo')return field('Etichetta',q+'.etichetta',bl.etichetta)+field('Titolo',q+'.testo',bl.testo);
+  if(bl.tipo==='testo')return field('Testo',q+'.testo',bl.testo,{area:true,rows:5});
+  if(bl.tipo==='immagine')return '<label class="drop">'+IC.up2+'<b style="color:#120F0E">'+(bl.nome?esc(bl.nome):'Carica immagine')+'</b><input type="file" accept="image/*" class="sr" data-a="uploadone" data-path="'+q+'"></label>'+field('Didascalia',q+'.didascalia',bl.didascalia);
+  if(bl.tipo==='numeri')return '<div class="box-h"><span class="hint">Numeri in evidenza</span><button type="button" class="btn sm" data-a="additem" data-path="'+q+'.voci" data-tpl="risultato">+ Numero</button></div>'+bl.voci.map(function(r,k){return '<div class="row"><input class="w30" aria-label="Valore" data-bind="'+q+'.voci.'+k+'.valore" value="'+esc(r.valore)+'"><input class="grow" aria-label="Descrizione" data-bind="'+q+'.voci.'+k+'.label" value="'+esc(r.label)+'">'+delBtn('rm','data-path="'+q+'.voci" data-i="'+k+'"','Elimina')+'</div>'}).join('');
+  if(bl.tipo==='elenco')return tags(bl.voci,q+'.voci','Voci');
+  if(bl.tipo==='cta')return '<div class="grid2">'+field('Titolo',q+'.testo',bl.testo)+field('Testo del pulsante',q+'.pulsante',bl.pulsante)+'</div>'+field('Link del pulsante',q+'.link',bl.link);
+  return '';
+}
+/* ---------- COLLAB ---------- */
+function vCollab(){
+  return top('Contenuti / Collaborazioni','Collaborazioni')+'<p class="hint" style="margin:-8px 0 16px">I loghi scorrono nella fascia "Hanno collaborato con noi".</p><div class="logos">'+
+  S.collab.map(function(c,i){return '<div class="logo"><div class="ph" style="'+(c.url?'background:#fff url('+esc(c.url)+') center/contain no-repeat;color:transparent':'')+'">'+esc(c.nome)+'</div><input aria-label="Nome" data-bind="collab.'+i+'.nome" value="'+esc(c.nome)+'"><div class="row" style="justify-content:space-between;align-items:center"><label class="link" style="padding:4px 0">Logo<input type="file" accept="image/*" class="sr" data-a="uploadone" data-path="collab.'+i+'"></label><span>'+moveBtns('mv','data-path="collab" data-i="'+i+'"','logo')+delBtn('rm','data-path="collab" data-i="'+i+'"','Elimina '+c.nome)+'</span></div></div>'}).join('')+
+  '<button type="button" class="drop" data-a="additem" data-path="collab" data-tpl="collab" style="min-height:160px">'+IC.up2+'<b style="color:#120F0E">Aggiungi collaborazione</b></button></div>';
+}
+/* ---------- TEAM ---------- */
+function vTeam(){
+  return top('Contenuti / Team & contatti','Team & contatti')+'<div style="display:flex;flex-direction:column;gap:10px;max-width:980px">'+
+  S.team.map(function(t,i){var b='team.'+i;return '<div class="block"><div class="block-h"><b>'+esc(t.nome||'Nuova persona')+'</b>'+moveBtns('mv','data-path="team" data-i="'+i+'"','persona')+delBtn('rm','data-path="team" data-i="'+i+'"','Elimina '+t.nome)+'</div><div class="block-b"><div class="grid2">'+field('Nome',b+'.nome',t.nome)+field('Ruolo',b+'.ruolo',t.ruolo,{hint:'facoltativo'})+field('Email',b+'.email',t.email,{type:'email'})+'</div></div></div>'}).join('')+
+  '<button type="button" class="btn dark" style="align-self:flex-start" data-a="additem" data-path="team" data-tpl="persona">+ Aggiungi persona</button></div>';
+}
+/* ---------- SEO ---------- */
+function vSeo(){var s=S.seo;
+  return top('Sito / SEO & impostazioni','SEO & impostazioni')+'<div style="display:flex;flex-direction:column;gap:16px;max-width:760px">'+field('Titolo del sito (Google e scheda del browser)','seo.titolo',s.titolo)+field('Descrizione per Google','seo.descrizione',s.descrizione,{area:true,rows:3})+'<div class="grid2">'+field('Instagram','seo.instagram',s.instagram,{hint:'link al profilo'})+field('LinkedIn','seo.linkedin',s.linkedin,{hint:'link alla pagina'})+'</div></div>';
+}
+
+var VIEWS={portfolio:vPortfolio,servizi:vServizi,home:vHome,pagine:vPagine,collab:vCollab,team:vTeam,impostazioni:vSeo};
+function render(focusMain){renderNav();document.getElementById('main').innerHTML=VIEWS[view.sec]();renderTopStatus();if(focusMain)document.getElementById('main').focus()}
+
+var TPL={risultato:function(){return {valore:'',label:''}},step:function(){return {titolo:'Nuovo punto',testo:''}},iniziativa:function(){return {kicker:'',titolo:'Nuova iniziativa',partner:'',testo:''}},
+ servizio:function(){return {id:'servizio-'+Date.now(),titolo:'Nuovo servizio',desc:'',voci:[]}},fase:function(){return {nome:'Nuova fase',testo:''}},collab:function(){return {nome:'Nuovo partner'}},persona:function(){return {nome:'',ruolo:'',email:''}}};
+var NEWBLOCK={titolo:function(){return {tipo:'titolo',etichetta:'',testo:'Nuovo titolo'}},testo:function(){return {tipo:'testo',testo:''}},immagine:function(){return {tipo:'immagine',nome:'',didascalia:''}},numeri:function(){return {tipo:'numeri',voci:[{valore:'',label:''}]}},elenco:function(){return {tipo:'elenco',voci:[]}},cta:function(){return {tipo:'cta',testo:'Parliamo di un progetto',pulsante:'Scrivici',link:'/contatti'}}};
+
+/* ---------- EVENTS ---------- */
+document.addEventListener('click',function(ev){
+  var nb=ev.target.closest('[data-nav]');if(nb){view.sec=nb.getAttribute('data-nav');view.page=null;render(true);return}
+  var el=ev.target.closest('[data-a]');if(!el||el.tagName==='FORM'||el.type==='file'||el.type==='checkbox')return;
+  var a=el.getAttribute('data-a'),path=el.getAttribute('data-path'),i=+el.getAttribute('data-i'),arr=path?get(path):null;
+  if(a==='rm'){arr.splice(i,1);save();render();toast('Eliminato')}
+  else if(a==='rmconf'){if(confirm('Eliminare definitivamente?')){arr.splice(i,1);save();render();toast('Eliminato')}}
+  else if(a==='mv'){move(arr,i,+el.getAttribute('data-dir'));save();render()}
+  else if(a==='additem'){arr.push(TPL[el.getAttribute('data-tpl')]());save();render();toast('Aggiunto')}
+  else if(a==='selproj'){view.sel=i;render()}
+  else if(a==='mvproj'){var d=+el.getAttribute('data-dir');move(S.progetti,i,d);if(view.sel===i)view.sel=Math.max(0,Math.min(S.progetti.length-1,i+d));save();render()}
+  else if(a==='addproj'){var t='Nuovo progetto',s=uid(t)+'-'+(S.progetti.length+1);S.progetti.unshift({slug:s,titolo:t,etichetta:'',sottotitolo:'',discipline:[],risultati:[],nota:'',obiettivo:'',strategia:[],iniziative_titolo:'',iniziative:[],materiali:[],foto:[],servizi:[],successivo:S.progetti[0]?S.progetti[0].slug:s,visibile:false});view.sel=0;save();render();toast('Progetto creato come bozza')}
+  else if(a==='delproj'){if(confirm('Eliminare "'+S.progetti[i].titolo+'"?')){S.progetti.splice(i,1);view.sel=0;save();render();toast('Progetto eliminato')}}
+  else if(a==='newpage'){var n=prompt('Titolo della nuova pagina','Lavora con noi');if(n){S.pagine.push({id:'p'+Date.now(),titolo:n,slug:'/'+uid(n),sistema:false,menu:false,blocchi:[NEWBLOCK.titolo(),NEWBLOCK.testo()]});S.pagine[S.pagine.length-1].blocchi[0].testo=n;view.page=S.pagine.length-1;save();render(true);toast('Pagina creata')}}
+  else if(a==='editpage'){view.page=i;render(true)}
+  else if(a==='backpages'){view.page=null;render(true)}
+  else if(a==='addblock'){S.pagine[i].blocchi.push(NEWBLOCK[el.getAttribute('data-t')]());save();render();toast('Blocco aggiunto')}
+  else if(a==='publish'){dirty=false;renderTopStatus();toast('Nella versione definitiva il sito si aggiorna in pochi secondi')}
+  else if(a==='savedraft'){toast('Salvato')}
+  else if(a==='reset'){if(confirm('Ripristinare tutti i contenuti originali?')){try{localStorage.removeItem(KEY)}catch(e){}dirty=false;view={sec:view.sec,sel:0,page:null};load(function(){render()});toast('Contenuti ripristinati')}}
+});
+document.addEventListener('input',function(ev){var p=ev.target.getAttribute('data-bind');if(!p)return;set(p,ev.target.value);save();
+  if(/\.titolo$|\.nome$/.test(p)){var h=ev.target.closest('.block');if(h){var b=h.querySelector('.block-h b');if(b&&ev.target.closest('.block-b')&&!/home\./.test(p))b.textContent=ev.target.value}}});
+document.addEventListener('change',function(ev){var t=ev.target;
+  if(t.getAttribute('data-bind')&&t.tagName==='SELECT'){set(t.getAttribute('data-bind'),t.value);save();return}
+  var c=t.getAttribute('data-bindc');if(c){set(c,t.checked);save();render();return}
+  var a=t.getAttribute('data-a');
+  if(a==='togserv'){var s=S.progetti[+t.getAttribute('data-i')].servizi,k=s.indexOf(t.value);if(t.checked&&k<0)s.push(t.value);if(!t.checked&&k>-1)s.splice(k,1);save();return}
+  if(a==='upload'||a==='uploadone'){var files=[].slice.call(t.files||[]),path=t.getAttribute('data-path');if(!files.length)return;
+    var done=0;files.forEach(function(f){var r=new FileReader();r.onload=function(){var item={nome:f.name,url:f.size<1500000?r.result:''};if(a==='upload')get(path).push(item);else{var o=get(path);o.nome=f.name;o.url=item.url}if(++done===files.length){save();render();toast(files.length>1?files.length+' foto caricate':'Immagine caricata')}};r.readAsDataURL(f)})}
+});
+document.addEventListener('submit',function(ev){var f=ev.target;if(f.getAttribute('data-a')!=='addtag')return;ev.preventDefault();var inp=f.querySelector('input'),v=inp.value.trim();if(!v)return;get(f.getAttribute('data-path')).push(v);save();render();var again=document.querySelector('form[data-path="'+f.getAttribute('data-path')+'"] input');if(again)again.focus()});
+
+load(function(){render()});
+})();
+</script>
 </body>
 </html>
