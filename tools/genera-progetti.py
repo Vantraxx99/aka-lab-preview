@@ -71,10 +71,10 @@ def page(p):
 
       {header}
 
-      <section style="max-width: 1360px; margin: 0 auto; padding: clamp(40px, 6vw, 80px) clamp(16px, 4vw, 48px) clamp(48px, 6vw, 80px)">
+      <section style="max-width: 1360px; margin: 0 auto; padding: clamp(24px, 5svh, 64px) clamp(16px, 4vw, 48px) clamp(40px, 6svh, 72px)">
         <a href="../index.html#portfolio" style="font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #120F0E; text-decoration: none">← Tutti i progetti</a>
-        <p style="{EY}; color: #9B1E22; margin-top: 40px">Progetti · {e(p["etichetta"])}</p>
-        <h1 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(54px, 10vw, 160px); line-height: .9; text-transform: uppercase">
+        <p style="{EY}; color: #9B1E22; margin-top: clamp(20px, 4svh, 40px)">Progetti · {e(p["etichetta"])}</p>
+        <h1 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(44px, min(9vw, 13svh), 150px); line-height: .92; text-transform: uppercase">
           <span class="ln"><span>{e(p["titolo"])}</span></span>
         </h1>
         <div class="fade">

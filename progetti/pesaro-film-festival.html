@@ -36,6 +36,7 @@ a{color:inherit}a:hover{color:inherit}
 .svc:hover .svc-n,.svc:hover .svc-d{color:#FBFAF9}
 .svc .arr{transition:transform .35s ease}
 summary.svc::-webkit-details-marker{display:none}
+.svc-item{scroll-margin-top:84px}
 summary.svc:focus-visible{outline:2px solid #9B1E22;outline-offset:2px}
 details[open] > .svc{background:#9B1E22;color:#FBFAF9;padding-left:28px}
 details[open] > .svc .svc-n,details[open] > .svc .svc-d{color:#FBFAF9}
@@ -50,8 +51,7 @@ details[open] > .svc-panel{animation:panelIn .5s cubic-bezier(.2,.75,.1,1) both}
 .nav a:hover{color:#9B1E22}
 @media (max-width: 960px){header nav{display:none !important}}
 @media (max-width: 640px){
-.hero-badge{width:96px !important;height:96px !important}
-.hero-badge svg{width:96px;height:96px}
+.hero-badge{display:none !important}
 .hero-ctas{width:100%}
 .hero-ctas .btn{flex:1 1 100%;justify-content:center}
 .svc{grid-template-columns:36px minmax(0,1fr) 28px !important;gap:6px 14px !important;padding:24px 0 !important}
@@ -87,10 +87,10 @@ details[open] > .svc{padding-left:12px !important}
     </div>
   </header>
 
-      <section style="max-width: 1360px; margin: 0 auto; padding: clamp(40px, 6vw, 80px) clamp(16px, 4vw, 48px) clamp(48px, 6vw, 80px)">
+      <section style="max-width: 1360px; margin: 0 auto; padding: clamp(24px, 5svh, 64px) clamp(16px, 4vw, 48px) clamp(40px, 6svh, 72px)">
         <a href="../index.html#portfolio" style="font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #120F0E; text-decoration: none">← Tutti i progetti</a>
-        <p style="margin: 0 0 20px; font-size: 13px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #9B1E22; margin-top: 40px">Progetti · Cinema · Pesaro</p>
-        <h1 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(54px, 10vw, 160px); line-height: .9; text-transform: uppercase">
+        <p style="margin: 0 0 20px; font-size: 13px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #9B1E22; margin-top: clamp(20px, 4svh, 40px)">Progetti · Cinema · Pesaro</p>
+        <h1 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: clamp(44px, min(9vw, 13svh), 150px); line-height: .92; text-transform: uppercase">
           <span class="ln"><span>Pesaro Film Festival</span></span>
         </h1>
         <div class="fade">
