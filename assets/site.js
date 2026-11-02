@@ -35,6 +35,7 @@ function fit(el){
   var box=el.dataset.fitH?el.closest(el.dataset.fitH):null;
   if(box){var H=box.clientHeight; fs=Math.min(fs,H/(lines.length*.9+.12))}
   if(el.dataset.max)fs=Math.min(fs,+el.dataset.max);
+  if(el.dataset.maxVh)fs=Math.min(fs,innerHeight*+el.dataset.maxVh/100);
   if(el.dataset.min)fs=Math.max(fs,+el.dataset.min);
   el.style.fontSize=fs.toFixed(2)+'px';
 }

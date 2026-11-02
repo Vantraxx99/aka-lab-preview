@@ -222,7 +222,7 @@ function vPortfolio(){
 /* ---------- SERVIZI ---------- */
 function vServizi(){
   return top('Contenuti / Servizi','Servizi')+'<p class="hint" style="margin:-8px 0 20px">Ogni servizio è una tendina sul sito: titolo e descrizione si vedono sempre, le voci si aprono al clic.</p><div style="display:flex;flex-direction:column;gap:14px;max-width:980px">'+
-  S.servizi.map(function(s,i){var b='servizi.'+i;return '<div class="block"><div class="block-h"><b>0'+(i+1)+' · '+esc(s.titolo||'Nuovo servizio')+'</b>'+moveBtns('mv','data-path="servizi" data-i="'+i+'"','servizio')+delBtn('rmconf','data-path="servizi" data-i="'+i+'"','Elimina servizio')+'</div><div class="block-b">'+field('Titolo',b+'.titolo',s.titolo)+field('Descrizione breve',b+'.desc',s.desc,{area:true,rows:2})+tags(s.voci,b+'.voci','Cosa facciamo (voci della tendina)')+'</div></div>'}).join('')+
+  S.servizi.map(function(s,i){var b='servizi.'+i;return '<div class="block"><div class="block-h"><b>0'+(i+1)+' · '+esc(s.titolo||'Nuovo servizio')+'</b>'+moveBtns('mv','data-path="servizi" data-i="'+i+'"','servizio')+delBtn('rmconf','data-path="servizi" data-i="'+i+'"','Elimina servizio')+'</div><div class="block-b">'+field('Titolo',b+'.titolo',s.titolo)+field('Descrizione breve',b+'.desc',s.desc,{area:true,rows:2})+tags(s.voci,b+'.voci','Voci della tendina')+'</div></div>'}).join('')+
   '<button type="button" class="btn dark" style="align-self:flex-start" data-a="additem" data-path="servizi" data-tpl="servizio">+ Aggiungi servizio</button></div>';
 }
 /* ---------- HOME ---------- */
