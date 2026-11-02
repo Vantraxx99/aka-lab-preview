@@ -152,6 +152,7 @@ function scrubs(){
 /* ---------- cursor, magnetic, tilt ---------- */
 function pointerFx(){
   if(!FINE||RM)return;
+  doc.classList.add('has-cursor');
   var c=document.createElement('div');c.className='cursor';var lb=document.createElement('div');lb.className='cursor-label';
   document.body.appendChild(c);document.body.appendChild(lb);
   var mx=-100,my=-100,cx=mx,cy=my;
