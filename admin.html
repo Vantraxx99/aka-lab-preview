@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AKA LAB — Admin (demo)</title>
+<meta name="description" content="Anteprima del pannello di amministrazione.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FBFAF9}
+a{color:#9B1E22}a:hover{color:#120F0E}
+input,textarea{font:inherit}
+</style>
+<style>html{scroll-behavior:smooth}</style>
+</head>
+<body>
+<div style="font-family: Archivo, system-ui, sans-serif; color: #120F0E; background: #FBFAF9; display: flex; flex-wrap: wrap; min-height: 1000px">
+
+  <!-- SIDEBAR -->
+  <aside style="flex: 1 1 240px; max-width: 280px; background: #120F0E; color: #FBFAF9; padding: 28px 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 32px">
+    <div>
+      <p style="margin: 0; font-family: Anton, sans-serif; font-size: 30px; color: #FBFAF9">AKA LAB</p>
+      <p style="margin: 4px 0 0; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #A8A29A">Pannello admin · demo</p>
+      <a href="index.html" style="display: inline-block; margin-top: 12px; color: #FBFAF9; font-size: 13px">← Torna al sito</a>
+    </div>
+    <nav aria-label="Sezioni del sito" style="display: flex; flex-direction: column; gap: 2px; font-size: 15px">
+      <p style="margin: 0 0 8px; font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #A8A29A">Contenuti</p>
+      <a href="#" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px; display: flex; justify-content: space-between">Home &amp; hero</a>
+      <a href="#" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px">Approccio 365</a>
+      <a href="#" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px">Servizi</a>
+      <a href="#" aria-current="page" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px; background: #9B1E22; display: flex; justify-content: space-between; font-weight: 600">Portfolio <span>4</span></a>
+      <a href="#" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px; display: flex; justify-content: space-between">Collaborazioni <span style="color: #A8A29A">32</span></a>
+      <a href="#" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px">Agenzia</a>
+      <a href="#" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px">Team &amp; contatti</a>
+      <p style="margin: 20px 0 8px; font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #A8A29A">Sito</p>
+      <a href="#" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px">Media</a>
+      <a href="#" style="color: #FBFAF9; text-decoration: none; padding: 12px 14px">SEO &amp; impostazioni</a>
+    </nav>
+    <div style="margin-top: auto; display: flex; align-items: center; gap: 12px; padding-top: 20px; border-top: 1px solid rgba(251,250,249,.15)">
+      <span style="width: 36px; height: 36px; border-radius: 50%; background: #9B1E22; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">A</span>
+      <div style="font-size: 13px"><p style="margin: 0; font-weight: 600">Alessia</p><p style="margin: 0; color: #A8A29A">Amministratrice</p></div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main style="flex: 999 1 560px; min-width: 0; padding: 28px clamp(16px, 3vw, 40px); box-sizing: border-box">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding-bottom: 24px; border-bottom: 1px solid #E1DDDA">
+      <div>
+        <p style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #9B1E22">Contenuti / Portfolio</p>
+        <h1 style="margin: 6px 0 0; font-family: Anton, sans-serif; font-weight: 400; font-size: 44px; text-transform: uppercase; line-height: 1">Portfolio</h1>
+      </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center">
+        <span style="font-size: 13px; color: #5C5650; display: flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #B45309; display: inline-block"></span>Modifiche non pubblicate</span>
+        <button type="button" style="min-height: 44px; padding: 0 20px; border: 1px solid #120F0E; background: transparent; color: #120F0E; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; cursor: pointer">Anteprima</button>
+        <button type="button" style="min-height: 44px; padding: 0 22px; border: 0; background: #9B1E22; color: #FBFAF9; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; cursor: pointer">Pubblica sul sito</button>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 32px; margin-top: 28px; align-items: flex-start">
+
+      <!-- LIST -->
+      <section aria-label="Progetti" style="flex: 1 1 300px; max-width: 380px">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px">
+          <p style="margin: 0; font-size: 13px; color: #5C5650">Trascina per riordinare</p>
+          <button type="button" style="min-height: 40px; padding: 0 14px; border: 0; background: #120F0E; color: #FBFAF9; font-size: 12px; font-weight: 700; letter-spacing: .1em; cursor: pointer">+ NUOVO</button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <div style="display: flex; gap: 12px; align-items: center; padding: 10px; background: #FFFFFF; border: 2px solid #9B1E22">
+            <svg aria-hidden="true" width="12" height="18" viewBox="0 0 12 18" fill="#A8A29A"><circle cx="3" cy="3" r="1.5"></circle><circle cx="9" cy="3" r="1.5"></circle><circle cx="3" cy="9" r="1.5"></circle><circle cx="9" cy="9" r="1.5"></circle><circle cx="3" cy="15" r="1.5"></circle><circle cx="9" cy="15" r="1.5"></circle></svg>
+            <span style="width: 64px; height: 48px; background: repeating-linear-gradient(135deg, #E1DDDA 0 6px, #EAE7E5 6px 12px); flex: none"></span>
+            <div style="min-width: 0; flex: 1"><p style="margin: 0; font-weight: 600; font-size: 15px">Italian Global Series Festival</p><p style="margin: 2px 0 0; font-size: 12px; color: #2F6B3A; font-weight: 600">● Pubblicato</p></div>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: center; padding: 10px; background: #FFFFFF; border: 1px solid #E1DDDA">
+            <svg aria-hidden="true" width="12" height="18" viewBox="0 0 12 18" fill="#A8A29A"><circle cx="3" cy="3" r="1.5"></circle><circle cx="9" cy="3" r="1.5"></circle><circle cx="3" cy="9" r="1.5"></circle><circle cx="9" cy="9" r="1.5"></circle><circle cx="3" cy="15" r="1.5"></circle><circle cx="9" cy="15" r="1.5"></circle></svg>
+            <span style="width: 64px; height: 48px; background: repeating-linear-gradient(135deg, #E1DDDA 0 6px, #EAE7E5 6px 12px); flex: none"></span>
+            <div style="min-width: 0; flex: 1"><p style="margin: 0; font-weight: 600; font-size: 15px">COMICON</p><p style="margin: 2px 0 0; font-size: 12px; color: #2F6B3A; font-weight: 600">● Pubblicato</p></div>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: center; padding: 10px; background: #FFFFFF; border: 1px solid #E1DDDA">
+            <svg aria-hidden="true" width="12" height="18" viewBox="0 0 12 18" fill="#A8A29A"><circle cx="3" cy="3" r="1.5"></circle><circle cx="9" cy="3" r="1.5"></circle><circle cx="3" cy="9" r="1.5"></circle><circle cx="9" cy="9" r="1.5"></circle><circle cx="3" cy="15" r="1.5"></circle><circle cx="9" cy="15" r="1.5"></circle></svg>
+            <span style="width: 64px; height: 48px; background: repeating-linear-gradient(135deg, #E1DDDA 0 6px, #EAE7E5 6px 12px); flex: none"></span>
+            <div style="min-width: 0; flex: 1"><p style="margin: 0; font-weight: 600; font-size: 15px">Festival del Cinema di Venezia</p><p style="margin: 2px 0 0; font-size: 12px; color: #5C5650; font-weight: 600">○ Bozza — manca la foto</p></div>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: center; padding: 10px; background: #FFFFFF; border: 1px solid #E1DDDA">
+            <svg aria-hidden="true" width="12" height="18" viewBox="0 0 12 18" fill="#A8A29A"><circle cx="3" cy="3" r="1.5"></circle><circle cx="9" cy="3" r="1.5"></circle><circle cx="3" cy="9" r="1.5"></circle><circle cx="9" cy="9" r="1.5"></circle><circle cx="3" cy="15" r="1.5"></circle><circle cx="9" cy="15" r="1.5"></circle></svg>
+            <span style="width: 64px; height: 48px; background: repeating-linear-gradient(135deg, #E1DDDA 0 6px, #EAE7E5 6px 12px); flex: none"></span>
+            <div style="min-width: 0; flex: 1"><p style="margin: 0; font-weight: 600; font-size: 15px">Pesaro Film Fest</p><p style="margin: 2px 0 0; font-size: 12px; color: #5C5650; font-weight: 600">○ Bozza — manca la foto</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDITOR -->
+      <section aria-label="Modifica progetto" style="flex: 999 1 420px; min-width: 0; background: #FFFFFF; border: 1px solid #E1DDDA; padding: clamp(20px, 2.5vw, 32px); box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+          <h2 style="margin: 0; font-family: Anton, sans-serif; font-weight: 400; font-size: 28px; text-transform: uppercase">Italian Global Series Festival</h2>
+          <label style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; min-height: 44px">
+            <input type="checkbox" checked style="width: 20px; height: 20px; accent-color: #9B1E22">Visibile sul sito
+          </label>
+        </div>
+
+        <div>
+          <p style="margin: 0 0 8px; font-size: 13px; font-weight: 600">Foto di copertina</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap">
+            <div style="flex: 1 1 260px; aspect-ratio: 16 / 9; background: repeating-linear-gradient(135deg, #E1DDDA 0 10px, #EAE7E5 10px 20px); display: flex; align-items: flex-end; justify-content: space-between; padding: 12px; box-sizing: border-box; font-size: 12px; color: #3B3733">
+              <span>igs-evento.jpg · 1.2 MB</span>
+              <button type="button" style="min-height: 36px; padding: 0 12px; border: 0; background: #120F0E; color: #FBFAF9; font-size: 12px; font-weight: 600; cursor: pointer">Sostituisci</button>
+            </div>
+            <div style="flex: 1 1 200px; border: 2px dashed #A8A29A; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 20px; text-align: center; color: #5C5650; font-size: 14px">
+              <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9B1E22" stroke-width="1.6"><path d="M12 16V4M7 9l5-5 5 5M4 16v4h16v-4"></path></svg>
+              <span><strong style="color: #120F0E">Trascina qui le foto</strong><br>per la galleria del progetto</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px">
+          <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 600">Titolo
+            <input type="text" value="Italian Global Series Festival" style="min-height: 44px; padding: 0 14px; border: 1px solid #A8A29A; background: #FBFAF9; font-size: 15px; font-weight: 400">
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 600">Etichetta sulla foto
+            <input type="text" value="Festival · Roma" style="min-height: 44px; padding: 0 14px; border: 1px solid #A8A29A; background: #FBFAF9; font-size: 15px; font-weight: 400">
+          </label>
+        </div>
+
+        <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 600">Frase breve (anteprima in home)
+          <input type="text" value="Valorizzare il potenziale del festival e amplificarne la visibilità." style="min-height: 44px; padding: 0 14px; border: 1px solid #A8A29A; background: #FBFAF9; font-size: 15px; font-weight: 400">
+        </label>
+
+        <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 600">Racconto del progetto
+          <textarea rows="5" style="padding: 12px 14px; border: 1px solid #A8A29A; background: #FBFAF9; font-size: 15px; font-weight: 400; line-height: 1.55; resize: vertical">[Testo completo della pagina progetto: obiettivi, cosa ha fatto AKA LAB, risultati.]</textarea>
+        </label>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid #E1DDDA">
+          <button type="button" style="min-height: 44px; padding: 0 4px; border: 0; background: transparent; color: #9B1E22; font-size: 13px; font-weight: 600; cursor: pointer">Elimina progetto</button>
+          <button type="button" style="min-height: 44px; padding: 0 24px; border: 0; background: #120F0E; color: #FBFAF9; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; cursor: pointer">Salva bozza</button>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>
