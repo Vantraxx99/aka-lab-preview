@@ -152,15 +152,6 @@ function scrubs(){
 /* ---------- cursor, magnetic, tilt ---------- */
 function pointerFx(){
   if(!FINE||RM)return;
-  doc.classList.add('has-cursor');
-  var c=document.createElement('div');c.className='cursor';var lb=document.createElement('div');lb.className='cursor-label';
-  document.body.appendChild(c);document.body.appendChild(lb);
-  var mx=-100,my=-100,cx=mx,cy=my;
-  addEventListener('pointermove',function(e){mx=e.clientX;my=e.clientY;c.classList.add('on')});
-  document.addEventListener('pointerleave',function(){c.classList.remove('on')});
-  document.addEventListener('pointerover',function(e){var t=e.target.closest('a,button,summary,label,[data-cursor]');c.classList.toggle('big',!!t);
-    var l=t&&t.getAttribute('data-cursor');lb.textContent=l||'';lb.classList.toggle('on',!!l)});
-  (function loop(){cx=lerp(cx,mx,.2);cy=lerp(cy,my,.2);c.style.transform='translate3d('+cx+'px,'+cy+'px,0)';lb.style.left=cx+'px';lb.style.top=cy+'px';requestAnimationFrame(loop)})();
   $$('.magnetic').forEach(function(el){
     el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect(),x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;el.style.transform='translate('+(x*.25)+'px,'+(y*.3)+'px)'});
     el.addEventListener('pointerleave',function(){el.style.transform=''});
