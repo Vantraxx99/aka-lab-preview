@@ -33,7 +33,7 @@ function fit(el){
   var maxW=0; lines.forEach(function(l){var s=l.firstElementChild; maxW=Math.max(maxW,s.getBoundingClientRect().width)});
   var W=el.clientWidth, fsW=W/maxW*100*.985, fs=fsW;
   var box=el.dataset.fitH?el.closest(el.dataset.fitH):null;
-  if(box){var H=box.clientHeight, lh=.86; fs=Math.min(fs,H/(lines.length*lh+.1))}
+  if(box){var H=box.clientHeight; fs=Math.min(fs,H/(lines.length*.9+.12))}
   if(el.dataset.max)fs=Math.min(fs,+el.dataset.max);
   if(el.dataset.min)fs=Math.max(fs,+el.dataset.min);
   el.style.fontSize=fs.toFixed(2)+'px';
@@ -178,21 +178,19 @@ function stage(){
   renderer.setPixelRatio(Math.min(devicePixelRatio||1,small?1.5:1.75));
   renderer.setClearColor(0x120F0E,1);
   var scene=new T.Scene(), cam=new T.PerspectiveCamera(50,1,.1,100); cam.position.set(0,0,10);
-  var H=16;
+  var H=19;
   var vs='varying float vY;varying vec3 vN;varying vec3 vV;uniform float uH;void main(){vY=-position.y/uH;vec4 mv=modelViewMatrix*vec4(position,1.);vN=normalize(normalMatrix*normal);vV=normalize(-mv.xyz);gl_Position=projectionMatrix*mv;}';
-  var fs='varying float vY;varying vec3 vN;varying vec3 vV;uniform vec3 uC;uniform float uI;uniform float uT;void main(){float e=pow(abs(dot(vN,vV)),2.2);float f=pow(1.-clamp(vY,0.,1.),1.6);float n=.85+.15*sin(vY*30.-uT*2.);float a=uI*e*f*n*smoothstep(0.,.03,vY);gl_FragColor=vec4(uC*a,a);}';
+  var fs='varying float vY;varying vec3 vN;varying vec3 vV;uniform vec3 uC;uniform float uI;uniform float uT;void main(){float e=pow(abs(dot(vN,vV)),1.3);float f=pow(1.-clamp(vY,0.,1.),1.25);float n=.85+.15*sin(vY*30.-uT*2.);float a=uI*e*f*n*smoothstep(0.,.02,vY)+uI*.9*pow(max(0.,1.-vY*9.),3.);gl_FragColor=vec4(uC*a,a);}';
   var cols=[0xE8605B,0xFBFAF9,0x9B1E22,0xE8605B,0xFBFAF9,0x9B1E22,0xE8605B];
   var beams=[], N=small?5:7;
   for(var i=0;i<N;i++){
-    var g=new T.ConeGeometry(small?2.2:2.8,H,64,1,true); g.translate(0,-H/2,0);
+    var g=new T.ConeGeometry(small?1.7:2.2,H,64,1,true); g.translate(0,-H/2,0);
     var m=new T.ShaderMaterial({vertexShader:vs,fragmentShader:fs,transparent:true,depthWrite:false,blending:T.AdditiveBlending,side:T.DoubleSide,
-      uniforms:{uH:{value:H},uC:{value:new T.Color(cols[i%cols.length])},uI:{value:cols[i%cols.length]===0xFBFAF9?.16:.32},uT:{value:0}}});
+      uniforms:{uH:{value:H},uC:{value:new T.Color(cols[i%cols.length])},uI:{value:cols[i%cols.length]===0xFBFAF9?.42:.85},uT:{value:0}}});
     var b=new T.Mesh(g,m), x=(i/(N-1)-.5)*(small?7:15);
-    b.position.set(x,6.5,-3-(i%3)*1.6);
+    b.position.set(x,8.2,-3-(i%3)*1.6);
     b.userData={base:-x*.035,amp:.28+Math.random()*.22,sp:.25+Math.random()*.35,ph:Math.random()*6.28,tx:.12+Math.random()*.15};
     scene.add(b);beams.push(b);
-    var lamp=new T.Mesh(new T.CircleGeometry(.16,24),new T.MeshBasicMaterial({color:cols[i%cols.length],transparent:true,opacity:.9}));
-    lamp.position.set(x,6.48,-3-(i%3)*1.6);scene.add(lamp);b.userData.lamp=lamp;
   }
   var PC=small?600:1600, pos=new Float32Array(PC*3), vel=new Float32Array(PC);
   for(var k=0;k<PC;k++){pos[k*3]=(Math.random()-.5)*24;pos[k*3+1]=(Math.random()-.5)*14;pos[k*3+2]=(Math.random()-.5)*10-2;vel[k]=.002+Math.random()*.006}
